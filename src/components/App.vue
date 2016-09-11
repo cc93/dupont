@@ -87,20 +87,24 @@
     <div class="app">
         <!--page1-->
         <img src="/img/bj01.jpg" alt="" class="bg" v-if="currentPage==1">
-        <img class="text-1 pa" src="/img/capy01.png" alt="" v-if="currentPage==1" transition="title-text" v-trans="{
-            transition:{transition:'all .7s ease .2s',opacity:1},
-            enter:{opacity:0,y:50},
-            leave:{opacity:0,transition:'all .1s ease'},
-                 ext:'%'}">
+        <img class="text-1 pa" src="/img/capy01.png" alt="" v-if="currentPage==1">
         <img class="btn-1 pa" src="/img/btn01.png" @click="nextPage" v-if="currentPage==1"/>
         <!--/page1-->
 
         <!--page2-->
         <img src="/img/bj05.png" alt="" class="bg" v-if="currentPage>1 && currentPage<6">
-        <img class="light pa" src="/img/light.png" alt="" v-if="currentPage>1" v-anim="{animation:'bulb-blink 7s steps(9,start) infinite',frames:[
-                {},{},{opacity:1},{opacity:1},{opacity:0.7},{opacity:1},{opacity:1},{},{},'%'] }">
-        <img class="text-1 pa" src="/img/capy02.png" alt="" v-if="currentPage==2" transition="title-text">
-        <img class="btn-1 pa" src="/img/btn02.png" @click="nextPage" v-if="currentPage==2"/>
+        <img class="light pa" src="/img/light.png" alt="" v-if="currentPage>1" v-anim="{animation:'bulb-blink 5s linear infinite',frames:[
+                {},{},{opacity:1},{opacity:1,scaleX:1},{opacity:0.7,scaleX:0.95},{opacity:1,scaleX:1},{opacity:1},{},{},'%'] }">
+        <img class="text-1 pa" src="/img/capy02.png" alt="" v-if="currentPage==2" transition="title-text" v-trans="{
+            transition:{transition:'all .7s ease .2s',opacity:1},
+            enter:{opacity:0,y:50},
+            leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+        <img class="btn-1 pa" src="/img/btn02.png" @click="nextPage" v-if="currentPage==2" transition="title-btn"  v-trans="{
+            transition:{transition:'opacity .7s ease .7s',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'opacity .1s ease'},
+                 ext:'%'}"/>
 
         <!--/page2-->
 
@@ -109,14 +113,18 @@
              v-trans="{
             transition:{transition:'all .9s ease',opacity:1},
             enter:{opacity:.7,x:-50,y:50},
-            leave:{opacity:0,'transition-duration':'.2s'},
+            leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
         <img class="text-1 pa" src="/img/capy03.png" alt="" v-if="currentPage==3" transition="title-text-3" v-trans="{
             transition:{transition:'all .7s ease .7s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-        <img class="btn-1 pa" src="/img/btn03.png" @click="nextPage" v-if="currentPage==3"/>
+        <img class="btn-1 pa" src="/img/btn03.png" @click="nextPage" v-if="currentPage==3" transition="title-btn-3" v-trans="{
+            transition:{transition:'opacity .7s ease 1.4s',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'opacity .1s ease'},
+                 ext:'%'}"/>
         <!-- /page3-->
 
         <!--page4-->
@@ -146,7 +154,11 @@
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-        <img class="btn-1 pa" src="/img/btn04.png" @click="nextPage" v-if="currentPage==4"/>
+        <img class="btn-1 pa" src="/img/btn04.png" @click="nextPage" v-if="currentPage==4" transition="title-btn-4" v-trans="{
+            transition:{transition:'opacity .7s ease 2.9s',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'opacity .1s ease'},
+                 ext:'%'}"/>
         <!--/page4-->
 
         <!--page5-->
@@ -156,7 +168,7 @@
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
         <img class="text-1 pa" src="/img/capy05.png" alt="" v-if="currentPage==5" transition="title-text-3">
-        <img class="btn-1 pa" src="/img/btn05.png" @click="nextPage" v-if="currentPage==5"/>
+        <img class="btn-1 pa" src="/img/btn05.png" @click="nextPage" v-if="currentPage==5" transition="title-btn-3"/>
         <!--/page5-->
 
         <!--page6-->
@@ -166,24 +178,34 @@
             leave:{opacity:0,transition:'opacity .1s ease'},
                  ext:'%'}">
         <img class="text-1 pa" src="/img/capy06.png" alt="" v-if="currentPage==6" transition="title-text-3">
-        <img class="btn-1 pa" src="/img/btn06.png" @click="nextPage" v-if="currentPage==6"/>
+        <img class="btn-1 pa" src="/img/btn06.png" @click="nextPage" v-if="currentPage==6" transition="title-btn-3"/>
         <!--/page6-->
 
         <!--page7-->
-        <div class="page7" v-if="currentPage>6">
-            <!-- 延时后给背景加滤镜 -->
-            <img src="/img/kongt.png" alt="" class="kongtiao pa">
-            <img src="/img/tv.png" alt="" class="tv pa">
-            <!-- 加延时-->
-            <div class="page7-mask pa">
-                <img src="/img/logo.png" alt="" class="logo pa">
-            </div>
+        <img src="/img/kongt.png" alt="" class="kongtiao pa" v-if="currentPage>6" transition="kongtiao" v-trans="{
+            transition:{transition:'all .7s ease 0.2s',opacity:1},
+            enter:{opacity:0,x:30,y:10},
+            leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+        <img src="/img/tv.png" alt="" class="tv pa" v-if="currentPage>6" transition="tv" v-trans="{
+            transition:{transition:'all .7s ease 0.7s',opacity:1},
+            enter:{opacity:0,y:30},
+            leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+        <div class="page7-mask pa" v-if="currentPage>6" transition="mask" v-trans="{
+            transition:{transition:'opacity .7s ease 2.4s',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'opacity .1s ease'},
+                 ext:'%'}">
+            <img src="/img/logo.png" alt="" class="logo pa">
         </div>
+        <img src="/img/bj07.jpg" alt="" class="bg" style="z-index: 20" v-if="currentPage>6" transition="last-page" v-trans="{
+            transition:{transition:'opacity .7s ease 4.4s',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'opacity .1s ease'},
+                 ext:'%'}" />
+        <!-- 延时后给背景加滤镜 -->
         <!--/page7-->
-
-        <!--page8-->
-        <img src="/img/bj06.png" alt="" class="bg" v-if="currentPage==8">
-        <!--/page8-->
     </div>
 </template>
 <script>
