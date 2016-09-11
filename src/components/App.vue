@@ -119,10 +119,11 @@
             <!--/page2-->
 
             <!-- page3 -->
-            <img class="sofa pa" src="/img/sofa.png" alt="" v-if="currentPage>2 && currentPage<6" transition="sofa"
+            <img class="sofa pa" src="/img/sofa.png" alt="" v-if="currentPage>2 && currentPage<6"
+                 transition="sofa"
                  v-trans="{
-            transition:{transition:'all .9s ease',opacity:1},
-            enter:{opacity:.7,x:-50,y:50},
+            transition:{transition:'all .9s ease .1s',opacity:1},
+            enter:{opacity:0,x:-50,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <img class="text-1 pa" src="/img/capy03.png" alt="" v-if="currentPage==3" transition="title-text-3"
@@ -150,7 +151,7 @@
                  ext:'%'}">
             <img src="/img/curtain01.png" alt="" class="curtain01 pa" v-if="currentPage>3 && currentPage<6"
                  transition="curtain01" v-trans="{
-            transition:{transition:'all .7s ease .9s',opacity:1},
+            transition:{transition:'all .7s ease 1.1s',opacity:1},
             enter:{opacity:0,x:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
