@@ -125,20 +125,20 @@
              v-trans="{
             transition:{transition:'all .9s ease .5s',opacity:1},
             enter:{opacity:0,x:50,y:50},
-            leave:{},
+            leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
         <img src="/img/curtain01.png" alt="" class="curtain01 pa" v-if="currentPage>3 && currentPage<6"
              transition="curtain01" v-trans="{
             transition:{transition:'all .7s ease .9s',opacity:1},
             enter:{opacity:0,x:50},
-            leave:{},
+            leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
         <img src="/img/draw.png" alt="" class="draw pa" v-if="currentPage>3 && currentPage<6" transition="sofa">
         <img src="/img/table.png" alt="" class="table pa" v-if="currentPage>3 && currentPage<6" transition="table"
              v-trans="{
             transition:{transition:'all .9s ease 1.5s',opacity:1},
             enter:{opacity:0,x:-20,y:50},
-            leave:{},
+            leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
         <!--/page4 to 5-->
         <img class="text-1 pa" src="/img/capy04.png" alt="" v-if="currentPage==4" transition="title-text-4" v-trans="{
@@ -152,7 +152,7 @@
         <!--page5-->
         <img src="/img/food.png" alt="" class="food pa" v-if="currentPage==5" transition="food" v-trans="{
             transition:{transition:'all .7s ease',opacity:1},
-            enter:{opacity:0,rotate:4,scale:.7},
+            enter:{opacity:0,rotate:20,scale:1.3},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
         <img class="text-1 pa" src="/img/capy05.png" alt="" v-if="currentPage==5" transition="title-text-3">
@@ -160,11 +160,13 @@
         <!--/page5-->
 
         <!--page6-->
-        <img src="/img/bj06.png" alt="" class="bg" v-if="currentPage>5">
-        <div class="page6" v-if="currentPage==6">
-            <img class="text-1 pa" src="/img/capy06.png" alt="">
-            <img class="btn-1 pa" src="/img/btn06.png" @click="nextPage"/>
-        </div>
+        <img src="/img/bj06.png" alt="" class="bg" v-if="currentPage>5" transition="fade-in" v-trans="{
+            transition:{transition:'opacity .7s ease',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'opacity .1s ease'},
+                 ext:'%'}">
+        <img class="text-1 pa" src="/img/capy06.png" alt="" v-if="currentPage==6" transition="title-text-3">
+        <img class="btn-1 pa" src="/img/btn06.png" @click="nextPage" v-if="currentPage==6"/>
         <!--/page6-->
 
         <!--page7-->
