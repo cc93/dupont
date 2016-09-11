@@ -5,7 +5,7 @@
         position: relative;
     }
 
-    .platform {
+    .stage {
         width: 1334px;
         height: 750px;
         position: absolute;
@@ -93,7 +93,7 @@
 </style>
 <template>
     <div class="app">
-        <div class="platform" v-auto-scale="{width:1334,height:750}">
+        <div class="stage" v-auto-scale="{width:1334,height:750}">
             <!--page1-->
             <img src="/img/bj01.jpg" alt="" class="bg" v-if="currentPage==1">
             <img class="text-1 pa" src="/img/capy01.png" alt="" v-if="currentPage==1">
@@ -255,7 +255,6 @@
                     var frames = {};    //obj, required!
                     //取得frames对象
                     if (val.frames instanceof Array) {  // val.frames is [Object Array]
-                        console.log('frame is array = ' + val.frames);
                         var length = val.frames.length;
                         var lastArg = val.frames[length - 1];
                         var key = '';
@@ -315,7 +314,6 @@
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
                     //portrait
-                    //landscape
                     var portraitResize = function () {
                         var winWidth = window.innerHeight;
                         var winHeight = window.innerWidth;
@@ -333,15 +331,26 @@
                         var cssSmartObj = {rotate:90, x: newX, y: -newY-newHeight, scale: newScale, 'transform-origin': '0 0'};
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
+
+                    //PC端
+                    if (typeof window.orientation === 'undefined') {
+                        resize();
+                    }
+                    //移动端
                     //竖屏
                     if (window.orientation == 180 || window.orientation == 0) {
                         portraitResize();
                     }
                     //横屏
-                    if (window.orientation == 90 || window.orientation == -90) {
+                    if (window.orientation == 90 || window.orientation == -90 ) {
                         resize();
                     }
                     window.onresize = function(){
+                        //PC端
+                        if (typeof window.orientation === 'undefined') {
+                            resize();
+                        }
+                        //移动端
                         //竖屏
                         if (window.orientation == 180 || window.orientation == 0) {
                             portraitResize();
