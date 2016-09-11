@@ -4,6 +4,7 @@
 import App from './components/App.vue';
 import FastClick from 'fastclick';
 
+
 //FastClick
 if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {

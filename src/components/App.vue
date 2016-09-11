@@ -286,8 +286,6 @@
                         timeFn = val.timeFn || 'linear';
                         loop = val.loop || 'infinite';
                     }
-                    console.log('frames = ' + JSON.stringify(frames));
-
                     var anim = Smart.Animations.create(name, frames);
                     this.el.style.animation = anim.name + ' ' + time + ' ' + timeFn + ' ' + loop;
                 }
@@ -316,14 +314,48 @@
                         var cssSmartObj = {x: newX, y: newY, scale: newScale, 'transform-origin': '0 0'};
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
-                    resize();
-                    window.onresize = resize;
+                    //portrait
+                    //landscape
+                    var portraitResize = function () {
+                        var winWidth = window.innerHeight;
+                        var winHeight = window.innerWidth;
+                        var winRatio = winWidth / winHeight;
+                        if (ratio > winRatio) {
+                            newWidth = winWidth;
+                            newHeight = newWidth / ratio;
+                        } else {
+                            newHeight = winHeight;
+                            newWidth = newHeight * ratio;
+                        }
+                        newX = (winWidth - newWidth ) / 2;     //translateX
+                        newY = (winHeight - newHeight ) / 2;   //translateY
+                        newScale = newWidth / width;            //scaleX,scaleY
+                        var cssSmartObj = {rotate:90, x: newX, y: -newY-newHeight, scale: newScale, 'transform-origin': '0 0'};
+                        Smart.Css.smartCss(el, cssSmartObj, 'px');
+                    };
+                    //竖屏
+                    if (window.orientation == 180 || window.orientation == 0) {
+                        portraitResize();
+                    }
+                    //横屏
+                    if (window.orientation == 90 || window.orientation == -90) {
+                        resize();
+                    }
+                    window.onresize = function(){
+                        //竖屏
+                        if (window.orientation == 180 || window.orientation == 0) {
+                            portraitResize();
+                        }
+                        //横屏
+                        if (window.orientation == 90 || window.orientation == -90) {
+                            resize();
+                        }
+                    };
                 }
             }
         },
         data(){
             return {
-                appStyle: {},
                 currentPage: 1
             }
         },
