@@ -18,7 +18,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: './build/',
-        publicPath: '/build/',
+        publicPath: './build/',
         //多页面
         //filename: '[name].js'
         //单页面
