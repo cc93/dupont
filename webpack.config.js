@@ -39,7 +39,7 @@ module.exports = {
                     limit: 10000,
                     // custom naming format if file is larger than
                     // the threshold
-                    name: '[name].[ext]?[hash]'
+                    name: './img/[name]-[hash].[ext]'
                 }
             }
             //{ test: /\.css$/,  loader: "style!css" },

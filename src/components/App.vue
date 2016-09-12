@@ -95,21 +95,21 @@
     <div class="app">
         <div class="stage" v-auto-scale="{width:1334,height:750}">
             <!--page1-->
-            <img src="/img/bj01.jpg" alt="" class="bg" v-if="currentPage==1">
-            <img class="text-1 pa" src="/img/capy01.png" alt="" v-if="currentPage==1">
-            <img class="btn-1 pa" src="/img/btn01.png" @click="nextPage" v-if="currentPage==1"/>
+            <img src="../../img/bj01.jpg" alt="" class="bg" v-if="currentPage==1">
+            <img class="text-1 pa" src="../../img/capy01.png" alt="" v-if="currentPage==1">
+            <img class="btn-1 pa" src="../../img/btn01.png" @click="nextPage" v-if="currentPage==1"/>
             <!--/page1-->
 
             <!--page2-->
-            <img src="/img/bj05.png" alt="" class="bg" v-if="currentPage>1 && currentPage<6">
-            <img class="light pa" src="/img/light.png" alt="" v-if="currentPage>1" v-anim="{animation:'bulb-blink 5s linear infinite',frames:[
+            <img src="../../img/bj05.png" alt="" class="bg" v-if="currentPage>1 && currentPage<6">
+            <img class="light pa" src="../../img/light.png" alt="" v-if="currentPage>1" v-anim="{animation:'bulb-blink 5s linear infinite',frames:[
                 {},{},{opacity:1},{opacity:1,scaleX:1},{opacity:0.7,scaleX:0.95},{opacity:1,scaleX:1},{opacity:1},{},{},'%'] }">
-            <img class="text-1 pa" src="/img/capy02.png" alt="" v-if="currentPage==2" transition="title-text" v-trans="{
+            <img class="text-1 pa" src="../../img/capy02.png" alt="" v-if="currentPage==2" transition="title-text" v-trans="{
             transition:{transition:'all .7s ease .2s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="btn-1 pa" src="/img/btn02.png" @click="nextPage" v-if="currentPage==2" transition="title-btn"
+            <img class="btn-1 pa" src="../../img/btn02.png" @click="nextPage" v-if="currentPage==2" transition="title-btn"
                  v-trans="{
             transition:{transition:'opacity .7s ease .7s',opacity:1},
             enter:{opacity:0},
@@ -119,20 +119,20 @@
             <!--/page2-->
 
             <!-- page3 -->
-            <img class="sofa pa" src="/img/sofa.png" alt="" v-if="currentPage>2 && currentPage<6"
+            <img class="sofa pa" src="../../img/sofa.png" alt="" v-if="currentPage>2 && currentPage<6"
                  transition="sofa"
                  v-trans="{
             transition:{transition:'all .9s ease .1s',opacity:1},
             enter:{opacity:0,x:-50,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="text-1 pa" src="/img/capy03.png" alt="" v-if="currentPage==3" transition="title-text-3"
+            <img class="text-1 pa" src="../../img/capy03.png" alt="" v-if="currentPage==3" transition="title-text-3"
                  v-trans="{
             transition:{transition:'all .7s ease .7s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="btn-1 pa" src="/img/btn03.png" @click="nextPage" v-if="currentPage==3" transition="title-btn-3"
+            <img class="btn-1 pa" src="../../img/btn03.png" @click="nextPage" v-if="currentPage==3" transition="title-btn-3"
                  v-trans="{
             transition:{transition:'opacity .7s ease 1.4s',opacity:1},
             enter:{opacity:0},
@@ -142,34 +142,34 @@
 
             <!--page4-->
             <!--page4 to 5-->
-            <img src="/img/curtain.png" alt="" class="curtain pa" v-if="currentPage>3 && currentPage<6"
+            <img src="../../img/curtain.png" alt="" class="curtain pa" v-if="currentPage>3 && currentPage<6"
                  transition="curtain"
                  v-trans="{
             transition:{transition:'all .9s ease .5s',opacity:1},
             enter:{opacity:0,x:50,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="/img/curtain01.png" alt="" class="curtain01 pa" v-if="currentPage>3 && currentPage<6"
+            <img src="../../img/curtain01.png" alt="" class="curtain01 pa" v-if="currentPage>3 && currentPage<6"
                  transition="curtain01" v-trans="{
             transition:{transition:'all .7s ease 1.1s',opacity:1},
             enter:{opacity:0,x:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="/img/draw.png" alt="" class="draw pa" v-if="currentPage>3 && currentPage<6" transition="sofa">
-            <img src="/img/table.png" alt="" class="table pa" v-if="currentPage>3 && currentPage<6" transition="table"
+            <img src="../../img/draw.png" alt="" class="draw pa" v-if="currentPage>3 && currentPage<6" transition="sofa">
+            <img src="../../img/table.png" alt="" class="table pa" v-if="currentPage>3 && currentPage<6" transition="table"
                  v-trans="{
             transition:{transition:'all .9s ease 1.5s',opacity:1},
             enter:{opacity:0,x:-20,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <!--/page4 to 5-->
-            <img class="text-1 pa" src="/img/capy04.png" alt="" v-if="currentPage==4" transition="title-text-4"
+            <img class="text-1 pa" src="../../img/capy04.png" alt="" v-if="currentPage==4" transition="title-text-4"
                  v-trans="{
             transition:{transition:'all .7s ease 2.3s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="btn-1 pa" src="/img/btn04.png" @click="nextPage" v-if="currentPage==4" transition="title-btn-4"
+            <img class="btn-1 pa" src="../../img/btn04.png" @click="nextPage" v-if="currentPage==4" transition="title-btn-4"
                  v-trans="{
             transition:{transition:'opacity .7s ease 2.9s',opacity:1},
             enter:{opacity:0},
@@ -178,34 +178,34 @@
             <!--/page4-->
 
             <!--page5-->
-            <img src="/img/food.png" alt="" class="food pa" v-if="currentPage==5" transition="food" v-trans="{
+            <img src="../../img/food.png" alt="" class="food pa" v-if="currentPage==5" transition="food" v-trans="{
             transition:{transition:'all .7s ease',opacity:1},
             enter:{opacity:0,rotate:20,scale:1.3},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="text-1 pa" src="/img/capy05.png" alt="" v-if="currentPage==5" transition="title-text-3">
-            <img class="btn-1 pa" src="/img/btn05.png" @click="nextPage" v-if="currentPage==5"
+            <img class="text-1 pa" src="../../img/capy05.png" alt="" v-if="currentPage==5" transition="title-text-3">
+            <img class="btn-1 pa" src="../../img/btn05.png" @click="nextPage" v-if="currentPage==5"
                  transition="title-btn-3"/>
             <!--/page5-->
 
             <!--page6-->
-            <img src="/img/bj06.png" alt="" class="bg" v-if="currentPage>5" transition="fade-in" v-trans="{
+            <img src="../../img/bj06.png" alt="" class="bg" v-if="currentPage>5" transition="fade-in" v-trans="{
             transition:{transition:'opacity .7s ease',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'opacity .1s ease'},
                  ext:'%'}">
-            <img class="text-1 pa" src="/img/capy06.png" alt="" v-if="currentPage==6" transition="title-text-3">
-            <img class="btn-1 pa" src="/img/btn06.png" @click="nextPage" v-if="currentPage==6"
+            <img class="text-1 pa" src="../../img/capy06.png" alt="" v-if="currentPage==6" transition="title-text-3">
+            <img class="btn-1 pa" src="../../img/btn06.png" @click="nextPage" v-if="currentPage==6"
                  transition="title-btn-3"/>
             <!--/page6-->
 
             <!--page7-->
-            <img src="/img/kongt.png" alt="" class="kongtiao pa" v-if="currentPage>6" transition="kongtiao" v-trans="{
+            <img src="../../img/kongt.png" alt="" class="kongtiao pa" v-if="currentPage>6" transition="kongtiao" v-trans="{
             transition:{transition:'all .7s ease 0.2s',opacity:1},
             enter:{opacity:0,x:10,y:10},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="/img/tv.png" alt="" class="tv pa" v-if="currentPage>6" transition="tv" v-trans="{
+            <img src="../../img/tv.png" alt="" class="tv pa" v-if="currentPage>6" transition="tv" v-trans="{
             transition:{transition:'all .7s ease 0.7s',opacity:1},
             enter:{opacity:0,y:30},
             leave:{opacity:0,transition:'all .1s ease'},
@@ -215,9 +215,9 @@
             enter:{opacity:0},
             leave:{opacity:0,transition:'opacity .1s ease'},
                  ext:'%'}">
-                <img src="/img/logo.png" alt="" class="logo pa">
+                <img src="../../img/logo.png" alt="" class="logo pa">
             </div>
-            <img src="/img/bj07.jpg" alt="" class="bg" style="z-index: 20" v-if="currentPage>6" transition="last-page"
+            <img src="../../img/bj07.jpg" alt="" class="bg" style="z-index: 20" v-if="currentPage>6" transition="last-page"
                  v-trans="{
             transition:{transition:'opacity .7s ease 4.4s',opacity:1},
             enter:{opacity:0},
