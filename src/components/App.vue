@@ -183,7 +183,7 @@
             enter:{opacity:0,rotate:20,scale:1.3},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="text-1 pa" src="../../img/capy05.png" alt="" v-show="currentPage==5" transition="title-text-3">
+            <img class="text-1 pa" style="left: 442px;" src="../../img/capy05.png" alt="" v-show="currentPage==5" transition="title-text-3" >
             <img class="btn-1 pa" src="../../img/btn05.png" @click="nextPage" v-show="currentPage==5"
                  transition="title-btn-3"/>
             <!--/page5-->
@@ -194,7 +194,7 @@
             enter:{opacity:0},
             leave:{opacity:0,transition:'opacity .1s ease'},
                  ext:'%'}">
-            <img class="text-1 pa" src="../../img/capy06.png" alt="" v-show="currentPage==6" transition="title-text-3">
+            <img class="text-1 pa" style="left: 317px;" src="../../img/capy06.png" alt="" v-show="currentPage==6" transition="title-text-3">
             <img class="btn-1 pa" src="../../img/btn06.png" @click="nextPage" v-show="currentPage==6"
                  transition="title-btn-3"/>
             <!--/page6-->
