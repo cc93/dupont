@@ -83,11 +83,27 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        z-index: 20;
     }
 
     .logo {
         left: 505px;
         bottom: 298px;
+    }
+
+    .btn-2{
+        left: 404px;
+        bottom: 50px;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .btn-3{
+        left: 680px;
+        bottom: 50px;
+        position: absolute;
+        z-index: 10;
     }
 
 </style>
@@ -210,19 +226,26 @@
             enter:{opacity:0,y:30},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <div class="page7-mask pa" v-show="currentPage>6" transition="mask" v-trans="{
-            transition:{transition:'opacity .7s ease 2.4s',opacity:1},
+            <img src="../../img/06btn01.png" alt="" class="btn-2 pa" @click="showPage7Mask=true" v-show="currentPage>6" transition="btn-2" v-trans="{
+            transition:{transition:'all .7s ease 1.6s',opacity:1},
+            enter:{opacity:0,x:-30},
+            leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+            <!--修改为H5大赛链接-->
+            <a href="https://www.baidu.com/">
+                <img src="../../img/06btn02.png" alt="" class="btn-3 pa" v-show="currentPage>6" transition="btn-3" v-trans="{
+            transition:{transition:'all .7s ease 1.9s',opacity:1},
+            enter:{opacity:0,x:-60},
+            leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+            </a>
+            <div class="page7-mask pa" @click="showPage7Mask=false" v-show="showPage7Mask" transition="mask" v-trans="{
+            transition:{transition:'opacity .7s ease .2s',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'opacity .1s ease'},
                  ext:'%'}">
                 <img src="../../img/logo.png" alt="" class="logo pa">
             </div>
-            <img src="../../img/bj07.jpg" alt="" class="bg" style="z-index: 20" v-show="currentPage>6" transition="last-page"
-                 v-trans="{
-            transition:{transition:'opacity .7s ease 4.4s',opacity:1},
-            enter:{opacity:0},
-            leave:{opacity:0,transition:'opacity .1s ease'},
-                 ext:'%'}"/>
             <!--/page7-->
 
         </div>
@@ -365,7 +388,8 @@
         },
         data(){
             return {
-                currentPage: 1
+                currentPage: 1,
+                showPage7Mask: false
             }
         },
         ready(){
