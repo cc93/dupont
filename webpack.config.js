@@ -18,7 +18,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: './build/',
-        publicPath: 'build',
+        publicPath: 'build/',
         //多页面
         //filename: '[name].js'
         //单页面
@@ -39,7 +39,7 @@ module.exports = {
                     limit: 10000,
                     // custom naming format if file is larger than
                     // the threshold
-                    name: './img/[name]-[hash].[ext]'
+                    name: 'img/[name]-[hash].[ext]'
                 }
             }
             //{ test: /\.css$/,  loader: "style!css" },
