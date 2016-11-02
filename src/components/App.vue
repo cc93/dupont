@@ -6,9 +6,9 @@
     }
 
     .stage {
-        width: 1334px;
-        height: 750px;
-        position: absolute;
+        width:100%;
+        height: 100%;
+        position: relative;
     }
 
     .bg {
@@ -109,7 +109,7 @@
 </style>
 <template>
     <div class="app">
-        <div class="stage" v-auto-scale="{width:1334,height:750}">
+        <div class="stage">
             <!--page1-->
             <img src="../../img/bj01.jpg" alt="" class="bg" v-show="currentPage==1">
             <img class="text-1 pa" src="../../img/capy01.png" alt="" v-show="currentPage==1">
@@ -354,6 +354,8 @@
                         var cssSmartObj = {rotate:90, x: newX, y: -newY-newHeight, scale: newScale, 'transform-origin': '0 0'};
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
+
+                    //ppaaaa
 
                     //PC端
                     if (typeof window.orientation === 'undefined') {
