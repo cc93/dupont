@@ -71,6 +71,15 @@
         bottom:70px;
     }
 
+    .p3-capy2{
+        left:368px;
+        bottom:70px;
+    }
+    .p4-capy2{
+        left:365px;
+        bottom:70px;
+    }
+
     .p1-lamp{
         left:648px;
         top:36px;
@@ -244,6 +253,20 @@
         left:428px;
         top:437px;
     }
+
+    .p3-prompt-box{
+        width:80px;
+        height:80px;
+        right:123px;
+        bottom:306px;
+    }
+
+    .p4-prompt-box{
+        width:80px;
+        height:80px;
+        right:461px;
+        bottom:220px;
+    }
 </style>
 <template>
     <div class="app">
@@ -314,7 +337,7 @@
                      v-show="currentPage==1"
                      transition="p1-prompt"
                      v-trans="{
-                transition:{transition:'opacity .7s ease .7s',opacity:1},
+                transition:{transition:'opacity .7s ease .6s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -347,7 +370,7 @@
                  v-show="currentPage==2"
                  transition="p2-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 2.5s',opacity:1},
+                transition:{transition:'opacity .7s ease 2.9s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -357,25 +380,40 @@
             <!--/page2-->
 
             <!-- page3 -->
-            <img class="sofa pa" src="../../img/sofa.png" alt="" v-show="currentPage>2 && currentPage<6"
+            <img class="sofa pa" src="../../img/sofa.png" alt=""
+                 v-show="currentPage>2 && currentPage<6"
                  transition="sofa"
                  v-trans="{
             transition:{transition:'all .9s ease .1s',opacity:1},
             enter:{opacity:0,x:-50,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="text-1 pa" src="../../img/capy03.png" alt="" v-show="currentPage==3" transition="title-text-3"
+            <div class="p2-capy1-box pa"
+                 v-show="currentPage==3"
+                 v-anim="{animation:'p3-capy1 2.5s ease .5s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                <img src="../../img/03_capy01.png" alt="" class="p2-capy1 pa">
+            </div>
+            <img src="../../img/03_capy02.png" alt="" class="p3-capy2 pa"
+                 v-show="currentPage==3"
+                 transition="title-text-3"
                  v-trans="{
-            transition:{transition:'all .7s ease .7s',opacity:1},
+            transition:{transition:'all .7s ease 2.9s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="btn-1 pa" src="../../img/btn03.png" @click="nextPage" v-show="currentPage==3" transition="title-btn-3"
+            <div class="p3-prompt-box pa"
+                 @click="nextPage"
+                 v-show="currentPage==3"
+                 transition="p3-prompt"
                  v-trans="{
-            transition:{transition:'opacity .7s ease 1.4s',opacity:1},
-            enter:{opacity:0},
-            leave:{opacity:0,transition:'opacity .1s ease'},
-                 ext:'%'}"/>
+                transition:{transition:'opacity .7s ease 3.3s',opacity:1},
+                enter:{opacity:0},
+                leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+                <div class="p0-prompt-1 pa" style="background: #fc3030"></div>
+                <div class="p0-prompt-2 pa" style="background: #fc3030"></div>
+            </div>
             <!-- /page3-->
 
             <!--page4-->
@@ -401,18 +439,26 @@
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <!--/page4 to 5-->
-            <img class="text-1 pa" src="../../img/capy04.png" alt="" v-show="currentPage==4" transition="title-text-4"
+            <img src="../../img/04_capy02.png" alt="" class="p4-capy2 pa"
+                 v-show="currentPage==4"
+                 transition="p4-capy2"
                  v-trans="{
             transition:{transition:'all .7s ease 2.3s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img class="btn-1 pa" src="../../img/btn04.png" @click="nextPage" v-show="currentPage==4" transition="title-btn-4"
+            <div class="p4-prompt-box pa"
+                 @click="nextPage"
+                 v-show="currentPage==4"
+                 transition="p4-prompt"
                  v-trans="{
-            transition:{transition:'opacity .7s ease 2.9s',opacity:1},
-            enter:{opacity:0},
-            leave:{opacity:0,transition:'opacity .1s ease'},
-                 ext:'%'}"/>
+                transition:{transition:'opacity .7s ease 2.9s',opacity:1},
+                enter:{opacity:0},
+                leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+                <div class="p0-prompt-1 pa" style="background: #fc3030"></div>
+                <div class="p0-prompt-2 pa" style="background: #fc3030"></div>
+            </div>
             <!--/page4-->
 
             <!--page5-->
