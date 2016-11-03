@@ -10,7 +10,7 @@ if ('addEventListener' in document) {
         console.log('Fastclick attach OK!')
     }, false);
 }
-//lalass
+
 //Vue
 new Vue({
     el: 'body',

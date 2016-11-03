@@ -6,9 +6,9 @@
     }
 
     .stage {
-        width:100%;
-        height: 100%;
-        position: relative;
+        width: 1334px;
+        height: 750px;
+        position: absolute;
     }
 
     .bg {
@@ -20,11 +20,30 @@
         z-index: -10;
     }
 
+    .p0-capy1{
+        left: 387px;
+        bottom: 154px;
+        opacity:0;
+    }
+
+    .p0-door{
+        left:769px;
+        top:116px;
+    }
+
+
     .btn-1 {
         left: 544px;
         bottom: 50px;
         position: absolute;
         z-index: 10;
+    }
+
+    .stars-1{
+        left:100px;
+        top:100px;
+        z-index: 10;
+        transform:scale(5)
     }
 
     .text-1 {
@@ -106,14 +125,200 @@
         z-index: 10;
     }
 
+
+    @-webkit-keyframes bounceInDown {
+        from, 60%, 75%, 90%, to {
+            -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -3000px, 0);
+            transform: translate3d(0, -3000px, 0);
+            background: #000;
+        }
+
+        60% {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 25px, 0);
+            background: url(../../img/00_prompt1.png) no-repeat  30px 30px;
+        }
+
+        75% {
+            -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+        }
+
+        90% {
+            -webkit-transform: translate3d(0, 5px, 0);
+            transform: translate3d(0, 5px, 0);
+            background: url(../../img/00_prompt2.png) no-repeat  15px 15px;
+        }
+
+        to {
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes bounceInDown {
+        from, 60%, 75%, 90%, to {
+            -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -3000px, 0);
+            transform: translate3d(0, -3000px, 0);
+        }
+
+        60% {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 25px, 0);
+            background: url(../../img/00_prompt1.png) no-repeat  30px 30px;
+        }
+
+        75% {
+            -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+        }
+
+        90% {
+            -webkit-transform: translate3d(0, 5px, 0);
+            background: url(../../img/00_prompt2.png) no-repeat  15px 15px;
+        }
+
+        to {
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    .bounceInDown {
+        -webkit-animation-name: bounceInDown;
+        animation-name: bounceInDown;
+    }
+    @-webkit-keyframes p2Prompt2 {
+        0%{
+            width: 20px;
+            height:20px;
+            opacity:0.9;
+        }
+        75%{
+            width: 60px;
+            height:60px;
+            opacity:0.1;
+        }
+        100%{
+            opacity:0;
+        }
+    }
+    @keyframes p2Prompt2 {
+        0%{
+            width: 20px;
+            height:20px;
+            opacity:0.9;
+        }
+        75%{
+            width: 60px;
+            height:60px;
+            opacity:0.1;
+        }
+        100%{
+            opacity:0;
+
+        }
+    }
+    .p0-prompt-box{
+        width:80px;
+        height:80px;
+        left:200px;
+        top:100px;
+    }
+
+    .p0-prompt-1{
+        width:20px;
+        height:20px;
+        left:50%;
+        top:50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 50%;
+        background: #cccdd0;
+        opacity:0.9;
+    }
+
+    .p0-prompt-2{
+        width:20px;
+        height:20px;
+        left:50%;
+        top:50%;
+        box-shadow: 0 0 10px rgba(0,0,0,.3) inset;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 50%;
+        background: #cccdd0;
+        -webkit-animation:p2Prompt2 1.2s  linear infinite;
+        animation:p2Prompt2 1.2s linear infinite;
+    }
+
 </style>
 <template>
     <div class="app">
-        <div class="stage">
+        <div class="stage" v-auto-scale="{width:1334,height:750}">
+            <!--page0-->
+            <img src="../../img/00_bj.jpg" alt="" class="bg"
+                 v-show="currentPage==0">
+            <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa"
+                 v-show="currentPage==0"
+                 v-anim="{animation:'p0-capy1 2.1s ease .2s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+            <img src="../../img/00_capy2.png" alt="" class="p0-capy1 pa"
+                 v-show="currentPage==0"
+                 v-anim="{animation:'p0-capy2 2.1s ease 1.7s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+            <img src="../../img/00_capy3.png" alt="" class="p0-capy1 pa"
+                 v-show="currentPage==0"
+                 v-anim="{animation:'p0-capy3 2.1s ease 3.2s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+            <img src="../../img/00_capy4.png" alt="" class="p0-capy1 pa"
+                 :style="isP0Capy4AnimEnd? 'opacity:1;':'opacity:0;'"
+                 v-show="currentPage==0"
+                 v-anim="{animation:'p0-capy4 2.1s ease 4.7s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }"
+                 @animationstart="isP0Capy4AnimStart=true"
+                 @animationend="isP0Capy4AnimEnd=true">
+            <img src="../../img/00_door.png" alt="" class="p0-door pa"
+                 v-show="isP0Capy4AnimStart==true"
+                 transition="p0-door"
+                 v-trans="{
+                transition:{transition:'all .3s ease .2s',opacity:1},
+                enter:{opacity:0,y:1},
+                leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+
+            <div class="p0-prompt-box pa">
+                <div class="p0-prompt-1 pa"></div>
+                <div class="p0-prompt-2 pa"></div>
+            </div>
+
+
+            <!--/page0-->
+
+
             <!--page1-->
             <img src="../../img/bj01.jpg" alt="" class="bg" v-show="currentPage==1">
             <img class="text-1 pa" src="../../img/capy01.png" alt="" v-show="currentPage==1">
             <img class="btn-1 pa" src="../../img/btn01.png" @click="nextPage" v-show="currentPage==1"/>
+            <stars-twinkle class="stars-1 pa"></stars-twinkle>
             <!--/page1-->
 
             <!--page2-->
@@ -252,8 +457,11 @@
     </div>
 </template>
 <script>
+    import StarsTwinkle from './StarsTwinkle.vue'
     export default{
-        components: {},
+        components: {
+            'stars-twinkle': StarsTwinkle
+        },
         directives: {
             'trans': {
                 update: function (val) {
@@ -355,8 +563,6 @@
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
 
-                    //ppaaaa
-
                     //PC端
                     if (typeof window.orientation === 'undefined') {
                         resize();
@@ -390,17 +596,23 @@
         },
         data(){
             return {
-                currentPage: 1,
-                showPage7Mask: false
+                currentPage: -1,
+                showPage7Mask: false,
+                isP0Capy4AnimStart:false,
+                isP0Capy4AnimEnd:false,
             }
         },
         ready(){
+            this.currentPage = 0;
         },
         methods: {
             nextPage(){
                 if (this.currentPage <= 9) {
                     this.currentPage++;
                 }
+            },
+            onP0Capy4AnimationEnd(e){
+                e.target.style.opacity = 1;
             }
         }
     }
