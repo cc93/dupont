@@ -276,6 +276,15 @@
         right:113px;
         top:208px;
     }
+    .p8-logo{
+        left:50px;
+        top:30px;
+    }
+
+    .p8-photo{
+        left:66px;
+        top:172px;
+    }
 </style>
 <template>
     <div class="app">
@@ -512,7 +521,10 @@
             <!--/page5-->
 
             <!--page6-->
-            <img src="../../img/bj06.png" alt="" class="bg" v-show="currentPage>5" transition="fade-in" v-trans="{
+            <img src="../../img/06_bj.jpg" alt="" class="bg"
+                 v-show="currentPage>5"
+                 transition="fade-in"
+                 v-trans="{
             transition:{transition:'opacity .7s ease',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'opacity .1s ease'},
@@ -582,6 +594,11 @@
             </div>
             <!--/page7-->
 
+            <!--page8-->
+            <img src="../../img/08_bj.jpg" alt="" class="bg">
+            <img src="../../img/08_logo.png" alt="" class="p8-logo pa">
+            <img src="../../img/08_photo.png" alt="" class="p8-photo pa">
+            <!--/page8-->
         </div>
     </div>
 </template>
