@@ -59,13 +59,6 @@
         top:115px;
     }
 
-    .text-1 {
-        left: 387px;
-        bottom: 154px;
-        position: absolute;
-        z-index: 10;
-    }
-
     .p1-capy1{
         left:440px;
         bottom:70px;
@@ -133,33 +126,6 @@
     .tv {
         right: 90px;
         bottom: 371px;
-    }
-
-    .page7-mask {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        z-index: 20;
-    }
-
-    .logo {
-        left: 505px;
-        bottom: 298px;
-    }
-
-    .btn-2{
-        left: 404px;
-        bottom: 50px;
-        position: absolute;
-        z-index: 10;
-    }
-
-    .btn-3{
-        left: 680px;
-        bottom: 50px;
-        position: absolute;
-        z-index: 10;
     }
 
     @-webkit-keyframes p2Prompt2 {
@@ -263,6 +229,11 @@
     }
     .p6-capy1{
         left:224px;
+        top: 32px;
+    }
+
+    .p7-capy1{
+        left:192px;
         top: 32px;
     }
 
@@ -480,7 +451,7 @@
             <!--page4-->
             <div class="p2-capy1-box pa"
                  v-show="currentPage==4"
-                 v-anim="{animation:'p4-capy1 2.5s ease 2.1s',frames:[
+                 v-anim="{animation:'p4-capy1 2.7s ease 2.1s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/04_capy01.png" alt="" class="p4-capy1 pa">
             </div>
@@ -488,7 +459,7 @@
                  v-show="currentPage==4"
                  transition="p4-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 4.7s',opacity:1},
+            transition:{transition:'all .7s ease 4.3s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -497,7 +468,7 @@
                  v-show="currentPage==4"
                  transition="p4-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 5.5s',opacity:1},
+                transition:{transition:'opacity .7s ease 5.4s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -561,8 +532,8 @@
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <div class="p6-prompt-box-1 pa"
-                 @click="nextPage"
-                 v-show="currentPage==6"
+                 @click="onKongtiaoClick"
+                 v-show="currentPage==6&&!isShowKongtiao"
                  transition="p6-prompt-1"
                  v-trans="{
                 transition:{transition:'opacity .7s ease 3.1s',opacity:1},
@@ -573,8 +544,8 @@
                 <div class="p0-prompt-2 pa" style="background: #fc3030"></div>
             </div>
             <div class="p6-prompt-box-2 pa"
-                 @click="nextPage"
-                 v-show="currentPage==6"
+                 @click="onTVClick"
+                 v-show="currentPage==6&&!isShowTV"
                  transition="p6-prompt-2"
                  v-trans="{
                 transition:{transition:'opacity .7s ease 3.1s',opacity:1},
@@ -587,35 +558,27 @@
             <!--/page6-->
 
             <!--page7-->
-            <img src="../../img/kongt.png" alt="" class="kongtiao pa" v-show="currentPage>6" transition="kongtiao" v-trans="{
+            <img src="../../img/kongt.png" alt="" class="kongtiao pa"
+                 v-show="isShowKongtiao"
+                 transition="kongtiao"
+                 v-trans="{
             transition:{transition:'all .7s ease 0.2s',opacity:1},
             enter:{opacity:0,x:10,y:10},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="../../img/tv.png" alt="" class="tv pa" v-show="currentPage>6" transition="tv" v-trans="{
-            transition:{transition:'all .7s ease 0.7s',opacity:1},
+            <img src="../../img/tv.png" alt="" class="tv pa"
+                 v-show="isShowTV"
+                 transition="tv"
+                 v-trans="{
+            transition:{transition:'all .7s ease 0.2s',opacity:1},
             enter:{opacity:0,y:30},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="../../img/06btn01.png" alt="" class="btn-2 pa" @click="showPage7Mask=true" v-show="currentPage>6" transition="btn-2" v-trans="{
-            transition:{transition:'all .7s ease 1.6s',opacity:1},
-            enter:{opacity:0,x:-30},
-            leave:{opacity:0,transition:'all .1s ease'},
-                 ext:'%'}">
-            <!--修改为H5大赛链接-->
-            <a href="https://www.baidu.com/">
-                <img src="../../img/06btn02.png" alt="" class="btn-3 pa" v-show="currentPage>6" transition="btn-3" v-trans="{
-            transition:{transition:'all .7s ease 1.9s',opacity:1},
-            enter:{opacity:0,x:-60},
-            leave:{opacity:0,transition:'all .1s ease'},
-                 ext:'%'}">
-            </a>
-            <div class="page7-mask pa" @click="showPage7Mask=false" v-show="showPage7Mask" transition="mask" v-trans="{
-            transition:{transition:'opacity .7s ease .2s',opacity:1},
-            enter:{opacity:0},
-            leave:{opacity:0,transition:'opacity .1s ease'},
-                 ext:'%'}">
-                <img src="../../img/logo.png" alt="" class="logo pa">
+            <div class="p2-capy1-box pa"
+                 v-show="currentPage==7"
+                 v-anim="{animation:'p8-capy1 2.5s ease .6s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                <img src="../../img/07_capy01.png" alt="" class="p7-capy1 pa">
             </div>
             <!--/page7-->
 
@@ -760,8 +723,9 @@
         data(){
             return {
                 currentPage: -1,
-                showPage7Mask: false,
                 isP0Capy4AnimStart:false,
+                isShowKongtiao:false,
+                isShowTV:false
             }
         },
         ready(){
@@ -769,13 +733,26 @@
         },
         methods: {
             nextPage(){
-                if (this.currentPage <= 9) {
-                    this.currentPage++;
+                this.currentPage++;
+                if (this.currentPage > 9) {
+                    this.currentPage = 9;
                 }
             },
             onP0Capy4AnimationEnd(e){
                 e.target.style.opacity = 1;
-            }
+            },
+            onKongtiaoClick(){
+                this.isShowKongtiao=true;
+                if(this.isShowTV){
+                    this.nextPage();
+                }
+            },
+            onTVClick(){
+                this.isShowTV=true;
+                if(this.isShowKongtiao){
+                    this.nextPage();
+                }
+            },
         }
     }
 </script>
