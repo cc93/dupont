@@ -21,14 +21,32 @@
     }
 
     .p0-capy1{
-        left: 387px;
-        bottom: 154px;
+        left: 455px;
+        bottom: 70px;
+        opacity:0;
+    }
+
+    .p0-capy2{
+        left: 315px;
+        bottom: 70px;
+        opacity:0;
+    }
+
+    .p0-capy3{
+        left: 274px;
+        bottom: 70px;
+        opacity:0;
+    }
+
+    .p0-capy4{
+        left: 212px;
+        bottom: 70px;
         opacity:0;
     }
 
     .p0-door{
-        left:769px;
-        top:116px;
+        left:768px;
+        top:115px;
     }
 
 
@@ -125,81 +143,6 @@
         z-index: 10;
     }
 
-
-    @-webkit-keyframes bounceInDown {
-        from, 60%, 75%, 90%, to {
-            -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        }
-
-        0% {
-            opacity: 0;
-            -webkit-transform: translate3d(0, -3000px, 0);
-            transform: translate3d(0, -3000px, 0);
-            background: #000;
-        }
-
-        60% {
-            opacity: 1;
-            -webkit-transform: translate3d(0, 25px, 0);
-            background: url(../../img/00_prompt1.png) no-repeat  30px 30px;
-        }
-
-        75% {
-            -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0);
-        }
-
-        90% {
-            -webkit-transform: translate3d(0, 5px, 0);
-            transform: translate3d(0, 5px, 0);
-            background: url(../../img/00_prompt2.png) no-repeat  15px 15px;
-        }
-
-        to {
-            -webkit-transform: none;
-            transform: none;
-        }
-    }
-
-    @keyframes bounceInDown {
-        from, 60%, 75%, 90%, to {
-            -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        }
-
-        0% {
-            opacity: 0;
-            -webkit-transform: translate3d(0, -3000px, 0);
-            transform: translate3d(0, -3000px, 0);
-        }
-
-        60% {
-            opacity: 1;
-            -webkit-transform: translate3d(0, 25px, 0);
-            background: url(../../img/00_prompt1.png) no-repeat  30px 30px;
-        }
-
-        75% {
-            -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0);
-        }
-
-        90% {
-            -webkit-transform: translate3d(0, 5px, 0);
-            background: url(../../img/00_prompt2.png) no-repeat  15px 15px;
-        }
-
-        to {
-            -webkit-transform: none;
-            transform: none;
-        }
-    }
-
-    .bounceInDown {
-        -webkit-animation-name: bounceInDown;
-        animation-name: bounceInDown;
-    }
     @-webkit-keyframes p2Prompt2 {
         0%{
             width: 20px;
@@ -234,8 +177,8 @@
     .p0-prompt-box{
         width:80px;
         height:80px;
-        left:200px;
-        top:100px;
+        right:-4px;
+        top:196px;
     }
 
     .p0-prompt-1{
@@ -277,40 +220,44 @@
             <!--page0-->
             <img src="../../img/00_bj.jpg" alt="" class="bg"
                  v-show="currentPage==0">
-            <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa"
+            <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
                  v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy1 2.1s ease .2s',frames:[
+                 v-anim="{animation:'p0-capy1 1.3s ease .2s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-            <img src="../../img/00_capy2.png" alt="" class="p0-capy1 pa"
+            <img src="../../img/00_capy2.png" alt="" class="p0-capy2 pa" width="698"
                  v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy2 2.1s ease 1.7s',frames:[
+                 v-anim="{animation:'p0-capy2 1.9s ease 1.2s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-            <img src="../../img/00_capy3.png" alt="" class="p0-capy1 pa"
+            <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
                  v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy3 2.1s ease 3.2s',frames:[
+                 v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-            <img src="../../img/00_capy4.png" alt="" class="p0-capy1 pa"
-                 :style="isP0Capy4AnimEnd? 'opacity:1;':'opacity:0;'"
+            <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
                  v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy4 2.1s ease 4.7s',frames:[
+                 v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }"
-                 @animationstart="isP0Capy4AnimStart=true"
-                 @animationend="isP0Capy4AnimEnd=true">
-            <img src="../../img/00_door.png" alt="" class="p0-door pa"
-                 v-show="isP0Capy4AnimStart==true"
-                 transition="p0-door"
-                 v-trans="{
-                transition:{transition:'all .3s ease .2s',opacity:1},
-                enter:{opacity:0,y:1},
+                 @animationstart="isP0Capy4AnimStart=true">
+            <div class="p0-door pa">
+                <img src="../../img/00_door.png" alt="" width="231"
+                     v-show="isP0Capy4AnimStart==true"
+                     transition="p0-door"
+                     v-trans="{
+                transition:{transition:'all 1.1s cubic-bezier(.22,.81,.58,.96) .2s',opacity:1,scale:1,y:0},
+                enter:{opacity:0,scale:0,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-
-            <div class="p0-prompt-box pa">
-                <div class="p0-prompt-1 pa"></div>
-                <div class="p0-prompt-2 pa"></div>
+                <div class="p0-prompt-box pa"
+                     v-show="isP0Capy4AnimStart==true"
+                     transition="p0-prompt"
+                     v-trans="{
+                transition:{transition:'opacity .7s ease 1.5s',opacity:1},
+                enter:{opacity:0},
+                leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+                    <div class="p0-prompt-1 pa"></div>
+                    <div class="p0-prompt-2 pa"></div>
+                </div>
             </div>
-
-
             <!--/page0-->
 
 
@@ -507,9 +454,6 @@
                         var str = val.animation;
                         var strArray = str.split(' ');
                         name = strArray[0];
-                        time = strArray[1] || '1s';
-                        timeFn = strArray[2] || 'linear';
-                        loop = strArray[3] || 'infinite';
                     } else {
                         name = val.name;    // string, can be null or undefined
                         time = val.time || '1s';
@@ -517,7 +461,7 @@
                         loop = val.loop || 'infinite';
                     }
                     var anim = Smart.Animations.create(name, frames);
-                    this.el.style.animation = anim.name + ' ' + time + ' ' + timeFn + ' ' + loop;
+                    this.el.style.animation = val.animation;
                 }
             },
             'auto-scale': {
@@ -599,7 +543,6 @@
                 currentPage: -1,
                 showPage7Mask: false,
                 isP0Capy4AnimStart:false,
-                isP0Capy4AnimEnd:false,
             }
         },
         ready(){
