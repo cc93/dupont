@@ -8,6 +8,16 @@
     .stage {
         width: 1334px;
         height: 750px;
+        left:0;
+        top:0;
+        position: absolute;
+    }
+
+    .page{
+        width:100%;
+        height: 100%;
+        left:0;
+        top:0;
         position: absolute;
     }
 
@@ -49,26 +59,21 @@
         top:115px;
     }
 
-
-    .btn-1 {
-        left: 544px;
-        bottom: 50px;
-        position: absolute;
-        z-index: 10;
-    }
-
-    .stars-1{
-        left:100px;
-        top:100px;
-        z-index: 10;
-        transform:scale(5)
-    }
-
     .text-1 {
         left: 387px;
         bottom: 154px;
         position: absolute;
         z-index: 10;
+    }
+
+    .p1-capy1{
+        left:440px;
+        bottom:70px;
+    }
+
+    .p1-lamp{
+        left:648px;
+        top:36px;
     }
 
     .light {
@@ -201,7 +206,6 @@
         height:20px;
         left:50%;
         top:50%;
-        box-shadow: 0 0 10px rgba(0,0,0,.3) inset;
         -webkit-transform: translateX(-50%) translateY(-50%);
         -moz-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
@@ -213,44 +217,104 @@
         animation:p2Prompt2 1.2s linear infinite;
     }
 
+    .p1-prompt-box{
+        width:80px;
+        height:80px;
+        left:644px;
+        top:100px;
+    }
+
+    .p2-capy1-box{
+        opacity:0;
+        width: 1334px;
+        height:86px;
+        left:0;
+        bottom:42px;
+        background: url(../../img/02_capy02.png) 0 0 no-repeat;
+    }
+
+    .p2-capy1{
+        left:218px;
+        top: 32px;
+    }
+
+    .p2-prompt-box{
+        width:80px;
+        height:80px;
+        left:428px;
+        top:437px;
+    }
 </style>
 <template>
     <div class="app">
         <div class="stage" v-auto-scale="{width:1334,height:750}">
             <!--page0-->
-            <img src="../../img/00_bj.jpg" alt="" class="bg"
-                 v-show="currentPage==0">
-            <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
-                 v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy1 1.3s ease .2s',frames:[
+           <div id="page0" class="page"
+                v-show="currentPage==0">
+               <img src="../../img/00_bj.jpg" alt="" class="bg"
+                    v-show="currentPage==0">
+               <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
+                    v-show="currentPage==0"
+                    v-anim="{animation:'p0-capy1 1.3s ease .2s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-            <img src="../../img/00_capy2.png" alt="" class="p0-capy2 pa" width="698"
-                 v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy2 1.9s ease 1.2s',frames:[
+               <img src="../../img/00_capy2.png" alt="" class="p0-capy2 pa" width="698"
+                    v-show="currentPage==0"
+                    v-anim="{animation:'p0-capy2 1.9s ease 1.2s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-            <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
-                 v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
+               <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
+                    v-show="currentPage==0"
+                    v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-            <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
-                 v-show="currentPage==0"
-                 v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
+               <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
+                    v-show="currentPage==0"
+                    v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }"
-                 @animationstart="isP0Capy4AnimStart=true">
-            <div class="p0-door pa">
-                <img src="../../img/00_door.png" alt="" width="231"
-                     v-show="isP0Capy4AnimStart==true"
-                     transition="p0-door"
-                     v-trans="{
-                transition:{transition:'all 1.1s cubic-bezier(.22,.81,.58,.96) .2s',opacity:1,scale:1,y:0},
+                    @animationstart="isP0Capy4AnimStart=true">
+               <div class="p0-door pa">
+                   <img src="../../img/00_door.png" alt="" width="231"
+                        v-show="isP0Capy4AnimStart==true"
+                        transition="p0-door"
+                        v-trans="{
+                transition:{transition:'all .9s cubic-bezier(.22,.81,.58,.96) .2s',opacity:1,scale:1,y:0},
                 enter:{opacity:0,scale:0,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-                <div class="p0-prompt-box pa"
-                     v-show="isP0Capy4AnimStart==true"
-                     transition="p0-prompt"
+                   <div class="p0-prompt-box pa"
+                        @click="nextPage"
+                        v-show="isP0Capy4AnimStart==true"
+                        transition="p0-prompt"
+                        v-trans="{
+                    transition:{transition:'opacity .7s ease 1.1s',opacity:1},
+                    enter:{opacity:0},
+                    leave:{opacity:0,transition:'all .1s ease'},
+                     ext:'%'}">
+                       <div class="p0-prompt-1 pa"></div>
+                       <div class="p0-prompt-2 pa"></div>
+                   </div>
+               </div>
+           </div>
+            <!--/page0-->
+
+
+            <!--page1-->
+            <div id="page1" class="page"
+                 v-show="currentPage==1">
+                <img src="../../img/bj01.jpg" alt="" class="bg" >
+                <img src="../../img/01_capy01.png" alt="" class="p1-capy1 pa"
+                     v-show="currentPage==1"
+                     transition="title-text"
                      v-trans="{
-                transition:{transition:'opacity .7s ease 1.5s',opacity:1},
+                    transition:{transition:'all .7s ease .2s',opacity:1},
+                    enter:{opacity:0,y:50},
+                    leave:{opacity:0,transition:'all .1s ease'},
+                         ext:'%'}">
+                <img class="p1-lamp pa" src="../../img/01_lamp.png" />
+                <div class="p1-prompt-box pa"
+                     @click="nextPage"
+                     v-show="currentPage==1"
+                     transition="p1-prompt"
+                     v-trans="{
+                transition:{transition:'opacity .7s ease .7s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -258,32 +322,38 @@
                     <div class="p0-prompt-2 pa"></div>
                 </div>
             </div>
-            <!--/page0-->
-
-
-            <!--page1-->
-            <img src="../../img/bj01.jpg" alt="" class="bg" v-show="currentPage==1">
-            <img class="text-1 pa" src="../../img/capy01.png" alt="" v-show="currentPage==1">
-            <img class="btn-1 pa" src="../../img/btn01.png" @click="nextPage" v-show="currentPage==1"/>
-            <stars-twinkle class="stars-1 pa"></stars-twinkle>
             <!--/page1-->
 
             <!--page2-->
             <img src="../../img/bj05.png" alt="" class="bg" v-show="currentPage>1 && currentPage<6">
             <img class="light pa" src="../../img/light.png" alt="" v-show="currentPage>1" v-anim="{animation:'bulb-blink 5s linear infinite',frames:[
                 {},{},{opacity:1},{opacity:1,scaleX:1},{opacity:0.7,scaleX:0.95},{opacity:1,scaleX:1},{opacity:1},{},{},'%'] }">
-            <img class="text-1 pa" src="../../img/capy02.png" alt="" v-show="currentPage==2" transition="title-text" v-trans="{
-            transition:{transition:'all .7s ease .2s',opacity:1},
-            enter:{opacity:0,y:50},
-            leave:{opacity:0,transition:'all .1s ease'},
-                 ext:'%'}">
-            <img class="btn-1 pa" src="../../img/btn02.png" @click="nextPage" v-show="currentPage==2" transition="title-btn"
+            <div class="p2-capy1-box pa"
+                 v-show="currentPage==2"
+                 v-anim="{animation:'p2-capy1 2.5s ease .2s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                <img src="../../img/02_capy01.png" alt="" class="p2-capy1 pa">
+            </div>
+            <img src="../../img/02_capy03.png" alt="" class="p1-capy1 pa"
+                 v-show="currentPage==2"
+                 transition="p2-capy3"
                  v-trans="{
-            transition:{transition:'opacity .7s ease .7s',opacity:1},
-            enter:{opacity:0},
-            leave:{opacity:0,transition:'opacity .1s ease'},
-                 ext:'%'}"/>
-
+                    transition:{transition:'all .7s ease 2.5s',opacity:1},
+                    enter:{opacity:0,y:50},
+                    leave:{opacity:0,transition:'all .1s ease'},
+                         ext:'%'}">
+            <div class="p2-prompt-box pa"
+                 @click="nextPage"
+                 v-show="currentPage==2"
+                 transition="p2-prompt"
+                 v-trans="{
+                transition:{transition:'opacity .7s ease 2.5s',opacity:1},
+                enter:{opacity:0},
+                leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
+                <div class="p0-prompt-1 pa" style="background: #fc3030"></div>
+                <div class="p0-prompt-2 pa" style="background: #fc3030"></div>
+            </div>
             <!--/page2-->
 
             <!-- page3 -->
