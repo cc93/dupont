@@ -598,11 +598,12 @@
             </div>
             <!--/page7-->
 
+
             <!--page8-->
-            <div id="page8" class="page" v-show="false">
+            <div id="page8" class="page" v-show="true">
                 <img src="../../img/08_bj.jpg" alt="" class="bg">
                 <img src="../../img/08_logo.png" alt="" class="p8-logo pa">
-                <img src="../../img/08_photo.png" alt="" class="p8-photo pa">
+                <img src="../../img/08_photo.png" alt="" class="p8-photo pa" :style="{left:photoX+'px',top:photoY+'px'}">
             </div>
             <!--/page8-->
         </div>
@@ -748,11 +749,14 @@
                 currentPage: -1,
                 isP0Capy4AnimStart:false,
                 isShowKongtiao:false,
-                isShowTV:false
+                isShowTV:false,
+                photoX:400,
+                photoY:200
             }
         },
         ready(){
             this.currentPage = 0;
+            this.photoJump(400,200,0,0,200);
         },
         methods: {
             nextPage(){
@@ -776,12 +780,23 @@
                     this.nextPage();
                 }
             },
-            photoJump(x0,y0,x1,y1){
+            photoJump(x0,y0,x1,y1,duration){
+                //t:currenttime, b:begin, c:change, d:duration
+                var linear = function(t,b,c,d){ return c*t/d + b; };
                 var backEaseOut = function(t,b,c,d,s){
                     if (s == undefined) s = 1.70158;
                     return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
-                }
-
+                };
+                var t = 0;
+                var iId = setInterval(function(){
+                    if(t<duration){
+                        t++;
+                        this.photoX = linear(t,x0,x1-x0,duration);
+                        this.photoY = backEaseOut(t,y0,y1-y0,duration);
+                    }else{
+                        clearInterval(iId);
+                    }
+                }.bind(this),1)
             }
         }
     }
