@@ -292,6 +292,10 @@
             <!--page0-->
            <div id="page0" class="page"
                 v-show="currentPage==0">
+               <audio autoplay>
+                   <source src="../../audio/footsteps.mp3" type="audio/mpeg">
+                   Your browser does not support HTML5 audio.
+               </audio>
                <img src="../../img/00_bj.jpg" alt="" class="bg"
                     v-show="currentPage==0">
                <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
@@ -316,7 +320,7 @@
                         v-show="isP0Capy4AnimStart==true"
                         transition="p0-door"
                         v-trans="{
-                transition:{transition:'all .9s cubic-bezier(.22,.81,.58,.96) .2s',opacity:1,scale:1,y:0},
+                transition:{transition:'all .9s cubic-bezier(.22,.81,.58,.96) 1.2s',opacity:1,scale:1,y:0},
                 enter:{opacity:0,scale:0,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -325,7 +329,7 @@
                         v-show="isP0Capy4AnimStart==true"
                         transition="p0-prompt"
                         v-trans="{
-                    transition:{transition:'opacity .7s ease 1.1s',opacity:1},
+                    transition:{transition:'opacity .7s ease 2.1s',opacity:1},
                     enter:{opacity:0},
                     leave:{opacity:0,transition:'all .1s ease'},
                      ext:'%'}">
@@ -595,9 +599,11 @@
             <!--/page7-->
 
             <!--page8-->
-            <img src="../../img/08_bj.jpg" alt="" class="bg">
-            <img src="../../img/08_logo.png" alt="" class="p8-logo pa">
-            <img src="../../img/08_photo.png" alt="" class="p8-photo pa">
+            <div id="page8" class="page" v-show="false">
+                <img src="../../img/08_bj.jpg" alt="" class="bg">
+                <img src="../../img/08_logo.png" alt="" class="p8-logo pa">
+                <img src="../../img/08_photo.png" alt="" class="p8-photo pa">
+            </div>
             <!--/page8-->
         </div>
     </div>
@@ -770,6 +776,13 @@
                     this.nextPage();
                 }
             },
+            photoJump(x0,y0,x1,y1){
+                var backEaseOut = function(t,b,c,d,s){
+                    if (s == undefined) s = 1.70158;
+                    return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+                }
+
+            }
         }
     }
 </script>
