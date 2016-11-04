@@ -277,13 +277,17 @@
         top:208px;
     }
     .p8-logo{
-        left:50px;
-        top:30px;
+        left:100px;
+        top:100px;
     }
 
     .p8-photo{
         left:66px;
         top:172px;
+    }
+
+    #page8{
+        z-index: 8;
     }
 </style>
 <template>
@@ -292,7 +296,7 @@
             <!--page0-->
            <div id="page0" class="page"
                 v-show="currentPage==0">
-               <audio autoplay>
+               <audio v-el:audio1>
                    <source src="../../audio/footsteps.mp3" type="audio/mpeg">
                    Your browser does not support HTML5 audio.
                </audio>
@@ -593,17 +597,22 @@
             <div class="p2-capy1-box pa"
                  v-show="currentPage==7"
                  v-anim="{animation:'p8-capy1 2.5s ease .6s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }"
+                 @animationend="nextPage">
                 <img src="../../img/07_capy01.png" alt="" class="p7-capy1 pa">
             </div>
             <!--/page7-->
 
-
             <!--page8-->
-            <div id="page8" class="page" v-show="true">
+            <div id="page8" class="page" v-show="currentPage==8">
+                <audio v-el:audio2>
+                    <source src="../../audio/camera.mp3" type="audio/mpeg">
+                    Your browser does not support HTML5 audio.
+                </audio>
                 <img src="../../img/08_bj.jpg" alt="" class="bg">
                 <img src="../../img/08_logo.png" alt="" class="p8-logo pa">
-                <img src="../../img/08_photo.png" alt="" class="p8-photo pa" :style="{left:photoX+'px',top:photoY+'px'}">
+                <img src="../../img/08_photo.png" alt="" class="p8-photo pa"
+                     :style="{left:photoX+'px',top:photoY+'px',transform:'scale('+photoScale+') rotate('+photoRotate+'deg)'}">
             </div>
             <!--/page8-->
         </div>
@@ -750,19 +759,28 @@
                 isP0Capy4AnimStart:false,
                 isShowKongtiao:false,
                 isShowTV:false,
-                photoX:400,
-                photoY:200
+                photoX:66,
+                photoY:172,
+                photoScale:3.05,
+                photoRotate:4
             }
         },
         ready(){
             this.currentPage = 0;
-            this.photoJump(400,200,0,0,200);
+            this.$els.audio1.play();
         },
         methods: {
+            //nextPage()唯一改变index的函数
             nextPage(){
                 this.currentPage++;
+                //限幅
                 if (this.currentPage > 9) {
                     this.currentPage = 9;
+                }
+                //触发动画
+                if(this.currentPage == 8){
+                    this.$els.audio2.play();
+                    this.$els.audio2.onplaying = this.photoJump(1344/2,750/2,56,273,3.05,1,4,0,500);
                 }
             },
             onP0Capy4AnimationEnd(e){
@@ -780,23 +798,33 @@
                     this.nextPage();
                 }
             },
-            photoJump(x0,y0,x1,y1,duration){
-                //t:currenttime, b:begin, c:change, d:duration
-                var linear = function(t,b,c,d){ return c*t/d + b; };
-                var backEaseOut = function(t,b,c,d,s){
-                    if (s == undefined) s = 1.70158;
-                    return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
-                };
+            photoJump(x0,y0,x1,y1,scale0,scale1,rotate0,rotate1,duration){
+//                var scale0 = 3.05;
+//                var scale1 = 1;
+//                var rotate0 = 4;
+//                var rotate1 = 0;
+                duration = Math.ceil(duration/10);
                 var t = 0;
                 var iId = setInterval(function(){
                     if(t<duration){
                         t++;
-                        this.photoX = linear(t,x0,x1-x0,duration);
-                        this.photoY = backEaseOut(t,y0,y1-y0,duration);
+                        this.photoX = this.linear(t,x0,x1-x0,duration);
+                        this.photoY = this.backEaseOut(t,y0,y1-y0,duration);
+                        this.photoScale = this.linear(t,scale0,scale1-scale0,duration);
+                        this.photoRotate = this.backEaseOut(t,rotate0,rotate1-rotate0,duration);
                     }else{
                         clearInterval(iId);
                     }
-                }.bind(this),1)
+                }.bind(this),10)
+            },
+            //Tween
+            //t:currenttime, b:begin, c:change, d:duration
+            linear(t,b,c,d){
+                return c*t/d + b;
+            },
+            backEaseOut(t,b,c,d,s){
+                if (s == undefined) s = 1.70158;
+                return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
             }
         }
     }
