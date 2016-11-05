@@ -46,14 +46,7 @@
         },
         data(){
             return {
-                ii: 0,
-                randomFactor: (function () {
-                    var arr = [];
-                    for (var i = 0; i < 7; i++) {
-                        arr.push(Math.random());
-                    }
-                    return arr;
-                })()
+                ii: 0
             }
         },
         watch:{
@@ -64,7 +57,6 @@
             }
         },
         ready(){
-            console.log('randomFactor = ' + this.randomFactor)
             this.initTimer();
         },
         methods: {

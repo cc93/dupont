@@ -821,7 +821,7 @@
                         clearInterval(iId);
                         setTimeout(()=> {
                             this.nextPage();
-                        }, 1500)
+                        }, 2000)
                     }
                 }.bind(this), 20)
             },

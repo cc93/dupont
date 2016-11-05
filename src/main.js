@@ -7,7 +7,6 @@ import App from './components/App.vue';
 if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
         FastClick.attach(document.body);
-        console.log('Fastclick attach OK!')
     }, false);
 }
 
