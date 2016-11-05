@@ -32,6 +32,36 @@
         z-index: -10;
     }
 
+    .loading {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        z-index: 50;
+    }
+
+    .loading-bar {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        color: #fff;
+        font-size: 32px;
+
+    }
+
+    .loading-text{
+        left: 50%;
+        top: 80%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        color: #fff;
+        font-size: 32px;
+        -webkit-transition: opacity .7s;
+        transition: opacity .7s;
+    }
+
     .p0-capy1 {
         left: 455px;
         bottom: 70px;
@@ -287,17 +317,23 @@
 </style>
 <template>
     <div class="app">
-        <div class="stage" v-auto-scale="{width:1334,height:750}" >
+        <div class="stage" v-auto-scale="{width:1334,height:750}">
+            <!-- page-1 loading -->
+            <div class="loading" v-if="currentPage==-1" @click="onClickLoadingPage">
+                <div id="indicatorContainer" class="loading-bar pa"></div>
+                <div class="loading-text pa" :style="{opacity:isLoadComplete? 1:0}">点击屏幕开始DuPont探索之旅</div>
+            </div>
+            <img src="../../img/00_bj.jpg" alt="" class="bg"
+                 v-show="currentPage==-1||currentPage==0">
+            <stars-twinkle :enable="currentPage==-1||currentPage==0" :sum="12"></stars-twinkle>
+            <!-- /page-1 loading -->
             <!--page0-->
-            <div id="page0" class="page"
+            <div id="page0" class="page" @click="onImg1load"
                  v-show="currentPage==0">
-                <audio v-el:audio1 id="audioa" autoplay>
+                <audio id="audioa">
                     <source src="./audio/footsteps.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
-                <stars-twinkle :enable="currentPage==0"></stars-twinkle>
-                <img src="../../img/00_bj.jpg" alt="" class="bg"
-                     v-show="currentPage==0">
                 <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
                      v-show="currentPage==0"
                      v-anim="{animation:'p0-capy1 1.3s ease .2s',frames:[
@@ -309,24 +345,24 @@
                 <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
                      v-show="currentPage==0"
                      v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }"
+                     @animationstart="isP0Capy3AnimStart=true">
                 <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
                      v-show="currentPage==0"
                      v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }"
-                     @animationstart="isP0Capy4AnimStart=true">
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }">
                 <div class="p0-door pa">
                     <img src="../../img/00_door.png" alt="" width="231"
-                         v-show="isP0Capy4AnimStart==true"
+                         v-show="isP0Capy3AnimStart==true"
                          transition="p0-door"
                          v-trans="{
-                transition:{transition:'all .9s cubic-bezier(.22,.81,.58,.96) 1.2s',opacity:1,scale:1,y:0},
+                transition:{transition:'all 1.5s cubic-bezier(.22,.81,.58,.96) .7s',opacity:1,scale:1,y:0},
                 enter:{opacity:0,scale:0.5,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
                     <div class="p0-prompt-box pa"
                          @click="nextPage"
-                         v-show="isP0Capy4AnimStart==true"
+                         v-show="isP0Capy3AnimStart==true"
                          transition="p0-prompt"
                          v-trans="{
                     transition:{transition:'opacity .7s ease 2.1s',opacity:1},
@@ -383,7 +419,7 @@
                  v-show="currentPage==2"
                  transition="p2-capy3"
                  v-trans="{
-                    transition:{transition:'all .7s ease 3s',opacity:1},
+                    transition:{transition:'all .7s ease 2.7s',opacity:1},
                     enter:{opacity:0,y:50},
                     leave:{opacity:0,transition:'all .1s ease'},
                          ext:'%'}">
@@ -392,7 +428,7 @@
                  v-show="currentPage==2"
                  transition="p2-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.4s',opacity:1},
+                transition:{transition:'opacity .7s ease 3s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -406,7 +442,7 @@
                  v-show="currentPage>2 && currentPage<6"
                  transition="sofa"
                  v-trans="{
-            transition:{transition:'all .9s ease .1s',opacity:1},
+            transition:{transition:'all .7s ease .1s',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -443,22 +479,28 @@
             <img src="../../img/curtain.png" alt="" class="curtain pa" v-show="currentPage>3 && currentPage<6"
                  transition="curtain"
                  v-trans="{
-            transition:{transition:'all .9s ease .5s',opacity:1},
+            transition:{transition:'all .7s ease .2s',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <img src="../../img/curtain01.png" alt="" class="curtain01 pa" v-show="currentPage>3 && currentPage<6"
                  transition="curtain01" v-trans="{
-            transition:{transition:'all .7s ease 1.1s',opacity:1},
+            transition:{transition:'all .7s ease .7s',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="../../img/draw.png" alt="" class="draw pa" v-show="currentPage>3 && currentPage<6"
-                 transition="sofa">
+            <img src="../../img/draw.png" alt="" class="draw pa"
+                 v-show="currentPage>3 && currentPage<6"
+                 transition="draw"
+                 v-trans="{
+            transition:{transition:'all .7s ease 1.2s',opacity:1},
+            enter:{opacity:0},
+            leave:{opacity:0,transition:'all .1s ease'},
+                 ext:'%'}">
             <img src="../../img/table.png" alt="" class="table pa" v-show="currentPage>3 && currentPage<6"
                  transition="table"
                  v-trans="{
-            transition:{transition:'all .9s ease 1.5s',opacity:1},
+            transition:{transition:'all .7s ease 1.7s',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -466,7 +508,7 @@
             <!--page4-->
             <div class="slogan-box pa"
                  v-show="currentPage==4"
-                 v-anim="{animation:'p4-capy1 3.2s ease 2.1s',frames:[
+                 v-anim="{animation:'p4-capy1 3s ease 2.3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/05_capy01.png" alt="" class="slogan pa">
             </div>
@@ -483,7 +525,7 @@
                  v-show="currentPage==4"
                  transition="p4-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 5.5s',opacity:1},
+                transition:{transition:'opacity .7s ease 5.4s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -500,7 +542,7 @@
                  ext:'%'}">
             <div class="slogan-box pa"
                  v-show="currentPage==5"
-                 v-anim="{animation:'p5-capy1 3.1s ease .3s',frames:[
+                 v-anim="{animation:'p5-capy1 2.7s ease .3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/04_capy01.png" alt="" class="slogan pa">
             </div>
@@ -508,7 +550,7 @@
                  v-show="currentPage==5"
                  transition="p5-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 3.2s',opacity:1},
+            transition:{transition:'all .7s ease 2.9s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -517,7 +559,7 @@
                  v-show="currentPage==5"
                  transition="p5-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.6s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.2s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -603,7 +645,7 @@
 
             <!--page8-->
             <div id="page8" class="page" v-show="currentPage>=8">
-                <audio v-el:audio2 id="audiob" autoplay>
+                <audio id="audiob">
                     <source src="./audio/camera.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
@@ -764,8 +806,9 @@
         },
         data(){
             return {
+                isLoadComplete:false,
                 currentPage: -1,
-                isP0Capy4AnimStart: false,
+                isP0Capy3AnimStart: false,
                 isShowKongtiao: false,
                 isShowTV: false,
                 photoX: 66,
@@ -775,35 +818,66 @@
             }
         },
         ready(){
-            this.currentPage = 0;
-            this.$emit('page-changed',this.currentPage);
-            this.$on('page-changed',function(msg){
-                alert('msg = ' + msg);
-                document.getElementById('audioa').play();
-            });
-//            this.audioAutoPlay('audioa');
+            this.loading();
+            this.initAudio();
         },
         methods: {
-            audioAutoPlay(id){
-                var audio = document.getElementById(id);
-
-                var play = function () {
-                    document.removeEventListener("WeixinJSBridgeReady", play);
-                    document.removeEventListener("YixinJSBridgeReady", play);
-
-                    audio.play();
-                    audio.pause();
-                    // document.removeEventListener("touchstart", play, false);
+            loading(){
+                //init radialIndicator
+                var radialObj = radialIndicator('#indicatorContainer', {
+                    radius:50,
+                    barColor: 'rgba(255,255,255,1)',
+                    barBgColor:'rgba(255,255,255,0.7)',
+                    barWidth: 10,
+                    initValue: 10,
+                    roundCorner: true,
+                    percentage: true
+                });
+                //init Loader
+                var Loader = Smart.Loader;
+                var loader = new Loader();
+                loader.addImages(document.querySelector('body'));
+                var startTime = new Date().getTime();
+                var setLoadedPercent = (p)=> {
+                    var pp = Math.ceil(Math.min((new Date().getTime() - startTime) / 25 + 10, p));
+                    radialObj.animate(pp);
+                    if (p >= 100) {
+                        if (pp >= 100) {
+                            loadedCompelte();
+                        } else {
+                            setTimeout(()=> {
+                                setLoadedPercent(100);
+                            });
+                        }
+                    }
                 };
-
-                audio.play();
-                audio.pause();
-
-                //weixin
-                document.addEventListener("WeixinJSBridgeReady", play, false);
-                //yixin
-                document.addEventListener('YixinJSBridgeReady', play, false);
-                // document.addEventListener("touchstart", play, false);
+                var loadedCompelte = ()=> {
+                    setTimeout(()=> {
+                        this.isLoadComplete = true;
+                    }, 1200)
+                };
+                //监听资源加载进度事件
+                loader.addProgressListener(function (p) {
+                    setLoadedPercent(Math.max(10,p.completedCount / p.totalCount * 100));
+                }.bind(this));
+                loader.start();
+            },
+            onClickLoadingPage(){
+                if(this.isLoadComplete){
+                    setTimeout(()=>{
+                        this.nextPage();
+                    },500);
+                }
+            },
+            initAudio(){
+                var loadAudio = ()=>{
+                    document.getElementById('audioa').load();
+                    document.getElementById('audiob').load();
+                };
+                window.addEventListener('click', loadAudio, false);
+                document.getElementById('audioa').oncanplay = ()=>{
+                    window.removeEventListener('click', loadAudio, false);
+                }
             },
             //nextPage()唯一改变index的函数
             nextPage(){
@@ -812,14 +886,19 @@
                 if (this.currentPage > 9) {
                     this.currentPage = 9;
                 }
+                if(this.currentPage == 1){
+                    if(!document.getElementById('audioa').paused){
+                        document.getElementById('audioa').pause();
+                    }
+                }
+                if(this.currentPage == 0){
+                    document.getElementById('audioa').play();
+                }
                 //触发动画
                 if (this.currentPage == 8) {
-                    this.$els.audio2.play();
-                    this.$els.audio2.onplaying = this.photoJump(1344 / 2, 750 / 2, 56, 273, 3.05, 1, 4, 0, 700);
+                    document.getElementById('audiob').play();
+                    document.getElementById('audiob').onplaying = this.photoJump(1344 / 2, 750 / 2, 56, 273, 3.05, 1, 4, 0, 700);
                 }
-            },
-            onP0Capy4AnimationEnd(e){
-                e.target.style.opacity = 1;
             },
             onKongtiaoClick(){
                 this.isShowKongtiao = true;
