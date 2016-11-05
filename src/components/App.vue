@@ -8,16 +8,16 @@
     .stage {
         width: 1334px;
         height: 750px;
-        left:0;
-        top:0;
+        left: 0;
+        top: 0;
         position: absolute;
     }
 
-    .page{
-        width:100%;
+    .page {
+        width: 100%;
         height: 100%;
-        left:0;
-        top:0;
+        left: 0;
+        top: 0;
         position: absolute;
     }
 
@@ -30,57 +30,58 @@
         z-index: -10;
     }
 
-    .p0-capy1{
+    .p0-capy1 {
         left: 455px;
         bottom: 70px;
-        opacity:0;
+        opacity: 0;
     }
 
-    .p0-capy2{
+    .p0-capy2 {
         left: 315px;
         bottom: 70px;
-        opacity:0;
+        opacity: 0;
     }
 
-    .p0-capy3{
+    .p0-capy3 {
         left: 274px;
         bottom: 70px;
-        opacity:0;
+        opacity: 0;
     }
 
-    .p0-capy4{
+    .p0-capy4 {
         left: 212px;
         bottom: 70px;
-        opacity:0;
+        opacity: 0;
     }
 
-    .p0-door{
-        left:768px;
-        top:115px;
+    .p0-door {
+        left: 768px;
+        top: 115px;
     }
 
-    .p1-capy1{
-        left:440px;
-        bottom:70px;
+    .p1-capy1 {
+        left: 440px;
+        bottom: 70px;
     }
 
-    .p3-capy2{
-        left:368px;
-        bottom:70px;
-    }
-    .p4-capy2{
-        left:365px;
-        bottom:70px;
+    .p3-capy2 {
+        left: 368px;
+        bottom: 70px;
     }
 
-    .p6-capy2{
-        left:312px;
-        bottom:70px;
+    .p4-capy2 {
+        left: 365px;
+        bottom: 70px;
     }
 
-    .p1-lamp{
-        left:648px;
-        top:36px;
+    .p6-capy2 {
+        left: 312px;
+        bottom: 70px;
+    }
+
+    .p1-lamp {
+        left: 648px;
+        top: 36px;
     }
 
     .light {
@@ -129,48 +130,50 @@
     }
 
     @-webkit-keyframes p2Prompt2 {
-        0%{
+        0% {
             width: 20px;
-            height:20px;
-            opacity:0.9;
+            height: 20px;
+            opacity: 0.9;
         }
-        75%{
+        75% {
             width: 60px;
-            height:60px;
-            opacity:0.1;
+            height: 60px;
+            opacity: 0.1;
         }
-        100%{
-            opacity:0;
+        100% {
+            opacity: 0;
         }
     }
+
     @keyframes p2Prompt2 {
-        0%{
+        0% {
             width: 20px;
-            height:20px;
-            opacity:0.9;
+            height: 20px;
+            opacity: 0.9;
         }
-        75%{
+        75% {
             width: 60px;
-            height:60px;
-            opacity:0.1;
+            height: 60px;
+            opacity: 0.1;
         }
-        100%{
-            opacity:0;
+        100% {
+            opacity: 0;
 
         }
     }
-    .p0-prompt-box{
-        width:80px;
-        height:80px;
-        right:-4px;
-        top:196px;
+
+    .p0-prompt-box {
+        width: 80px;
+        height: 80px;
+        right: -4px;
+        top: 196px;
     }
 
-    .p0-prompt-1{
-        width:20px;
-        height:20px;
-        left:50%;
-        top:50%;
+    .p0-prompt-1 {
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        top: 50%;
         -webkit-transform: translateX(-50%) translateY(-50%);
         -moz-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
@@ -178,14 +181,14 @@
         transform: translateX(-50%) translateY(-50%);
         border-radius: 50%;
         background: #cccdd0;
-        opacity:0.9;
+        opacity: 0.9;
     }
 
-    .p0-prompt-2{
-        width:20px;
-        height:20px;
-        left:50%;
-        top:50%;
+    .p0-prompt-2 {
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        top: 50%;
         -webkit-transform: translateX(-50%) translateY(-50%);
         -moz-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
@@ -193,162 +196,152 @@
         transform: translateX(-50%) translateY(-50%);
         border-radius: 50%;
         background: #cccdd0;
-        -webkit-animation:p2Prompt2 1.2s  linear infinite;
-        animation:p2Prompt2 1.2s linear infinite;
+        -webkit-animation: p2Prompt2 1.2s linear infinite;
+        animation: p2Prompt2 1.2s linear infinite;
     }
 
-    .p1-prompt-box{
-        width:80px;
-        height:80px;
-        left:644px;
-        top:100px;
+    .p1-prompt-box {
+        width: 80px;
+        height: 80px;
+        left: 644px;
+        top: 100px;
     }
 
-    .p2-capy1-box{
-        opacity:0;
-        width: 1334px;
-        height:86px;
-        left:0;
-        bottom:42px;
+    .slogan-box {
+        opacity: 0;
+        width: 100%;
+        height: 86px;
+        left: 0;
+        bottom: 42px;
         background: url(../../img/02_capy02.png) 0 0 no-repeat;
     }
 
-    .p2-capy1{
-        left:218px;
-        top: 32px;
+    .slogan {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
 
-    .p4-capy1{
-        left:170px;
-        top: 32px;
+    .p2-prompt-box {
+        width: 80px;
+        height: 80px;
+        left: 428px;
+        top: 437px;
     }
 
-    .p5-capy1{
-        left:176px;
-        top: 32px;
-    }
-    .p6-capy1{
-        left:224px;
-        top: 32px;
+    .p3-prompt-box {
+        width: 80px;
+        height: 80px;
+        right: 123px;
+        bottom: 306px;
     }
 
-    .p7-capy1{
-        left:192px;
-        top: 32px;
+    .p4-prompt-box {
+        width: 80px;
+        height: 80px;
+        right: 461px;
+        bottom: 220px;
     }
 
-    .p2-prompt-box{
-        width:80px;
-        height:80px;
-        left:428px;
-        top:437px;
+    .p5-prompt-box {
+        width: 80px;
+        height: 80px;
+        left: 164px;
+        top: 145px;
     }
 
-    .p3-prompt-box{
-        width:80px;
-        height:80px;
-        right:123px;
-        bottom:306px;
+    .p6-prompt-box-1 {
+        width: 80px;
+        height: 80px;
+        left: 138px;
+        top: 272px;
     }
 
-    .p4-prompt-box{
-        width:80px;
-        height:80px;
-        right:461px;
-        bottom:220px;
+    .p6-prompt-box-2 {
+        width: 80px;
+        height: 80px;
+        right: 113px;
+        top: 208px;
     }
 
-    .p5-prompt-box{
-        width:80px;
-        height:80px;
-        left:164px;
-        top:145px;
-    }
-    .p6-prompt-box-1{
-        width:80px;
-        height:80px;
-        left:138px;
-        top:272px;
-    }
-    .p6-prompt-box-2{
-        width:80px;
-        height:80px;
-        right:113px;
-        top:208px;
-    }
-    .p8-logo{
-        left:100px;
-        top:100px;
+    .p8-logo {
+        left: 100px;
+        top: 100px;
     }
 
-    .p8-photo{
-        left:66px;
-        top:172px;
+    .p8-photo {
+        left: 66px;
+        top: 172px;
     }
 
-    #page8{
+    #page8 {
         z-index: 8;
+    }
+
+    #page9 {
+        z-index: 9;
     }
 </style>
 <template>
     <div class="app">
         <div class="stage" v-auto-scale="{width:1334,height:750}">
             <!--page0-->
-           <div id="page0" class="page"
-                v-show="currentPage==0">
-               <audio v-el:audio1>
-                   <source src="../../audio/footsteps.mp3" type="audio/mpeg">
-                   Your browser does not support HTML5 audio.
-               </audio>
-               <img src="../../img/00_bj.jpg" alt="" class="bg"
-                    v-show="currentPage==0">
-               <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
-                    v-show="currentPage==0"
-                    v-anim="{animation:'p0-capy1 1.3s ease .2s',frames:[
+            <div id="page0" class="page"
+                 v-show="currentPage==0">
+                <audio v-el:audio1>
+                    <source src="../../audio/footsteps.mp3" type="audio/mpeg">
+                    Your browser does not support HTML5 audio.
+                </audio>
+                <img src="../../img/00_bj.jpg" alt="" class="bg"
+                     v-show="currentPage==0">
+                <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
+                     v-show="currentPage==0"
+                     v-anim="{animation:'p0-capy1 1.3s ease .2s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-               <img src="../../img/00_capy2.png" alt="" class="p0-capy2 pa" width="698"
-                    v-show="currentPage==0"
-                    v-anim="{animation:'p0-capy2 1.9s ease 1.2s',frames:[
+                <img src="../../img/00_capy2.png" alt="" class="p0-capy2 pa" width="698"
+                     v-show="currentPage==0"
+                     v-anim="{animation:'p0-capy2 1.9s ease 1.2s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-               <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
-                    v-show="currentPage==0"
-                    v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
+                <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
+                     v-show="currentPage==0"
+                     v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-               <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
-                    v-show="currentPage==0"
-                    v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
+                <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
+                     v-show="currentPage==0"
+                     v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }"
-                    @animationstart="isP0Capy4AnimStart=true">
-               <div class="p0-door pa">
-                   <img src="../../img/00_door.png" alt="" width="231"
-                        v-show="isP0Capy4AnimStart==true"
-                        transition="p0-door"
-                        v-trans="{
+                     @animationstart="isP0Capy4AnimStart=true">
+                <div class="p0-door pa">
+                    <img src="../../img/00_door.png" alt="" width="231"
+                         v-show="isP0Capy4AnimStart==true"
+                         transition="p0-door"
+                         v-trans="{
                 transition:{transition:'all .9s cubic-bezier(.22,.81,.58,.96) 1.2s',opacity:1,scale:1,y:0},
                 enter:{opacity:0,scale:0,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-                   <div class="p0-prompt-box pa"
-                        @click="nextPage"
-                        v-show="isP0Capy4AnimStart==true"
-                        transition="p0-prompt"
-                        v-trans="{
+                    <div class="p0-prompt-box pa"
+                         @click="nextPage"
+                         v-show="isP0Capy4AnimStart==true"
+                         transition="p0-prompt"
+                         v-trans="{
                     transition:{transition:'opacity .7s ease 2.1s',opacity:1},
                     enter:{opacity:0},
                     leave:{opacity:0,transition:'all .1s ease'},
                      ext:'%'}">
-                       <div class="p0-prompt-1 pa"></div>
-                       <div class="p0-prompt-2 pa"></div>
-                   </div>
-               </div>
-           </div>
+                        <div class="p0-prompt-1 pa"></div>
+                        <div class="p0-prompt-2 pa"></div>
+                    </div>
+                </div>
+            </div>
             <!--/page0-->
 
 
             <!--page1-->
             <div id="page1" class="page"
                  v-show="currentPage==1">
-                <img src="../../img/bj01.jpg" alt="" class="bg" >
+                <img src="../../img/bj01.jpg" alt="" class="bg">
                 <img src="../../img/01_capy01.png" alt="" class="p1-capy1 pa"
                      v-show="currentPage==1"
                      transition="title-text"
@@ -357,7 +350,7 @@
                     enter:{opacity:0,y:50},
                     leave:{opacity:0,transition:'all .1s ease'},
                          ext:'%'}">
-                <img class="p1-lamp pa" src="../../img/01_lamp.png" />
+                <img class="p1-lamp pa" src="../../img/01_lamp.png"/>
                 <div class="p1-prompt-box pa"
                      @click="nextPage"
                      v-show="currentPage==1"
@@ -377,17 +370,17 @@
             <img src="../../img/bj05.png" alt="" class="bg" v-show="currentPage>1 && currentPage<6">
             <img class="light pa" src="../../img/light.png" alt="" v-show="currentPage>1" v-anim="{animation:'bulb-blink 5s linear infinite',frames:[
                 {},{},{opacity:1},{opacity:1,scaleX:1},{opacity:0.7,scaleX:0.95},{opacity:1,scaleX:1},{opacity:1},{},{},'%'] }">
-            <div class="p2-capy1-box pa"
+            <div class="slogan-box pa"
                  v-show="currentPage==2"
-                 v-anim="{animation:'p2-capy1 2.5s ease .2s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/02_capy01.png" alt="" class="p2-capy1 pa">
+                 v-anim="{animation:'p2-capy1 3s ease .2s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                <img src="../../img/02_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/02_capy03.png" alt="" class="p1-capy1 pa"
                  v-show="currentPage==2"
                  transition="p2-capy3"
                  v-trans="{
-                    transition:{transition:'all .7s ease 2.5s',opacity:1},
+                    transition:{transition:'all .7s ease 3s',opacity:1},
                     enter:{opacity:0,y:50},
                     leave:{opacity:0,transition:'all .1s ease'},
                          ext:'%'}">
@@ -396,7 +389,7 @@
                  v-show="currentPage==2"
                  transition="p2-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 2.9s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.4s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -414,17 +407,17 @@
             enter:{opacity:0,x:-50,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <div class="p2-capy1-box pa"
+            <div class="slogan-box pa"
                  v-show="currentPage==3"
-                 v-anim="{animation:'p3-capy1 2.5s ease .5s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/03_capy01.png" alt="" class="p2-capy1 pa">
+                 v-anim="{animation:'p3-capy1 3s ease .5s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                <img src="../../img/03_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/03_capy02.png" alt="" class="p3-capy2 pa"
                  v-show="currentPage==3"
                  transition="p3-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 2.9s',opacity:1},
+            transition:{transition:'all .7s ease 3.4s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -433,7 +426,7 @@
                  v-show="currentPage==3"
                  transition="p3-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.3s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.8s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -457,8 +450,10 @@
             enter:{opacity:0,x:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <img src="../../img/draw.png" alt="" class="draw pa" v-show="currentPage>3 && currentPage<6" transition="sofa">
-            <img src="../../img/table.png" alt="" class="table pa" v-show="currentPage>3 && currentPage<6" transition="table"
+            <img src="../../img/draw.png" alt="" class="draw pa" v-show="currentPage>3 && currentPage<6"
+                 transition="sofa">
+            <img src="../../img/table.png" alt="" class="table pa" v-show="currentPage>3 && currentPage<6"
+                 transition="table"
                  v-trans="{
             transition:{transition:'all .9s ease 1.5s',opacity:1},
             enter:{opacity:0,x:-20,y:50},
@@ -466,11 +461,11 @@
                  ext:'%'}">
             <!--/page4 to 5-->
             <!--page4-->
-            <div class="p2-capy1-box pa"
+            <div class="slogan-box pa"
                  v-show="currentPage==4"
-                 v-anim="{animation:'p4-capy1 2.7s ease 2.1s',frames:[
+                 v-anim="{animation:'p4-capy1 2.8s ease 2.1s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/04_capy01.png" alt="" class="p4-capy1 pa">
+                <img src="../../img/05_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/04_capy02.png" alt="" class="p4-capy2 pa"
                  v-show="currentPage==4"
@@ -500,17 +495,17 @@
             enter:{opacity:0,rotate:20,scale:1.3},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <div class="p2-capy1-box pa"
+            <div class="slogan-box pa"
                  v-show="currentPage==5"
-                 v-anim="{animation:'p5-capy1 2.5s ease .3s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/05_capy01.png" alt="" class="p5-capy1 pa">
+                 v-anim="{animation:'p5-capy1 3.1s ease .3s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                <img src="../../img/04_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/05_capy02.png" alt="" class="p4-capy2 pa"
                  v-show="currentPage==5"
                  transition="p5-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 2.7s',opacity:1},
+            transition:{transition:'all .7s ease 3.2s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -519,7 +514,7 @@
                  v-show="currentPage==5"
                  transition="p5-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.1s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.4s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -537,11 +532,11 @@
             enter:{opacity:0},
             leave:{opacity:0,transition:'opacity .1s ease'},
                  ext:'%'}">
-            <div class="p2-capy1-box pa"
+            <div class="slogan-box pa"
                  v-show="currentPage==6"
                  v-anim="{animation:'p5-capy1 2.5s ease .3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/06_capy01.png" alt="" class="p6-capy1 pa">
+                <img src="../../img/06_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/06_capy02.png" alt="" class="p6-capy2 pa"
                  v-show="currentPage==6"
@@ -594,17 +589,17 @@
             enter:{opacity:0,y:30},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
-            <div class="p2-capy1-box pa"
+            <div class="slogan-box pa"
                  v-show="currentPage==7"
                  v-anim="{animation:'p8-capy1 2.5s ease .6s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }"
                  @animationend="nextPage">
-                <img src="../../img/07_capy01.png" alt="" class="p7-capy1 pa">
+                <img src="../../img/07_capy01.png" alt="" class="slogan pa">
             </div>
             <!--/page7-->
 
             <!--page8-->
-            <div id="page8" class="page" v-show="currentPage==8">
+            <div id="page8" class="page" v-show="currentPage>=8">
                 <audio v-el:audio2>
                     <source src="../../audio/camera.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
@@ -615,6 +610,10 @@
                      :style="{left:photoX+'px',top:photoY+'px',transform:'scale('+photoScale+') rotate('+photoRotate+'deg)'}">
             </div>
             <!--/page8-->
+
+            <!--page9-->
+            <img src="../../img/09_bj.jpg" alt="" id="page9" class="page" v-show="currentPage==9" transition="fade-in">
+            <!--/page9-->
         </div>
     </div>
 </template>
@@ -718,7 +717,13 @@
                         newX = (winWidth - newWidth ) / 2;     //translateX
                         newY = (winHeight - newHeight ) / 2;   //translateY
                         newScale = newWidth / width;            //scaleX,scaleY
-                        var cssSmartObj = {rotate:90, x: newX, y: -newY-newHeight, scale: newScale, 'transform-origin': '0 0'};
+                        var cssSmartObj = {
+                            rotate: 90,
+                            x: newX,
+                            y: -newY - newHeight,
+                            scale: newScale,
+                            'transform-origin': '0 0'
+                        };
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
 
@@ -732,10 +737,10 @@
                         portraitResize();
                     }
                     //横屏
-                    if (window.orientation == 90 || window.orientation == -90 ) {
+                    if (window.orientation == 90 || window.orientation == -90) {
                         resize();
                     }
-                    window.onresize = function(){
+                    window.onresize = function () {
                         //PC端
                         if (typeof window.orientation === 'undefined') {
                             resize();
@@ -756,17 +761,17 @@
         data(){
             return {
                 currentPage: -1,
-                isP0Capy4AnimStart:false,
-                isShowKongtiao:false,
-                isShowTV:false,
-                photoX:66,
-                photoY:172,
-                photoScale:3.05,
-                photoRotate:4
+                isP0Capy4AnimStart: false,
+                isShowKongtiao: false,
+                isShowTV: false,
+                photoX: 66,
+                photoY: 172,
+                photoScale: 3.05,
+                photoRotate: 4
             }
         },
         ready(){
-            this.currentPage = 0;
+            this.currentPage = 7;
             this.$els.audio1.play();
         },
         methods: {
@@ -778,53 +783,52 @@
                     this.currentPage = 9;
                 }
                 //触发动画
-                if(this.currentPage == 8){
+                if (this.currentPage == 8) {
                     this.$els.audio2.play();
-                    this.$els.audio2.onplaying = this.photoJump(1344/2,750/2,56,273,3.05,1,4,0,500);
+                    this.$els.audio2.onplaying = this.photoJump(1344 / 2, 750 / 2, 56, 273, 3.05, 1, 4, 0, 700);
                 }
             },
             onP0Capy4AnimationEnd(e){
                 e.target.style.opacity = 1;
             },
             onKongtiaoClick(){
-                this.isShowKongtiao=true;
-                if(this.isShowTV){
+                this.isShowKongtiao = true;
+                if (this.isShowTV) {
                     this.nextPage();
                 }
             },
             onTVClick(){
-                this.isShowTV=true;
-                if(this.isShowKongtiao){
+                this.isShowTV = true;
+                if (this.isShowKongtiao) {
                     this.nextPage();
                 }
             },
-            photoJump(x0,y0,x1,y1,scale0,scale1,rotate0,rotate1,duration){
-//                var scale0 = 3.05;
-//                var scale1 = 1;
-//                var rotate0 = 4;
-//                var rotate1 = 0;
-                duration = Math.ceil(duration/10);
+            photoJump(x0, y0, x1, y1, scale0, scale1, rotate0, rotate1, duration){
+                duration = Math.ceil(duration / 10);
                 var t = 0;
-                var iId = setInterval(function(){
-                    if(t<duration){
+                var iId = setInterval(function () {
+                    if (t < duration) {
                         t++;
-                        this.photoX = this.linear(t,x0,x1-x0,duration);
-                        this.photoY = this.backEaseOut(t,y0,y1-y0,duration);
-                        this.photoScale = this.linear(t,scale0,scale1-scale0,duration);
-                        this.photoRotate = this.backEaseOut(t,rotate0,rotate1-rotate0,duration);
-                    }else{
+                        this.photoX = this.linear(t, x0, x1 - x0, duration);
+                        this.photoY = this.backEaseOut(t, y0, y1 - y0, duration);
+                        this.photoScale = this.linear(t, scale0, scale1 - scale0, duration);
+                        this.photoRotate = this.backEaseOut(t, rotate0, rotate1 - rotate0, duration);
+                    } else {
                         clearInterval(iId);
+                        setTimeout(()=> {
+                            this.nextPage();
+                        }, 1500)
                     }
-                }.bind(this),10)
+                }.bind(this), 10)
             },
             //Tween
             //t:currenttime, b:begin, c:change, d:duration
-            linear(t,b,c,d){
-                return c*t/d + b;
+            linear(t, b, c, d){
+                return c * t / d + b;
             },
-            backEaseOut(t,b,c,d,s){
+            backEaseOut(t, b, c, d, s){
                 if (s == undefined) s = 1.70158;
-                return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+                return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
             }
         }
     }
