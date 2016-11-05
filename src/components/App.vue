@@ -1,7 +1,6 @@
 <style>
 
 
-
     .app {
         width: 100%;
         height: 100%;
@@ -281,17 +280,18 @@
     #page8 {
         z-index: 8;
     }
+
     #page9 {
         z-index: 9;
     }
 </style>
 <template>
     <div class="app">
-        <div class="stage" v-auto-scale="{width:1334,height:750}">
+        <div class="stage" v-auto-scale="{width:1334,height:750}" >
             <!--page0-->
             <div id="page0" class="page"
                  v-show="currentPage==0">
-                <audio v-el:audio1>
+                <audio v-el:audio1 id="audioa" autoplay>
                     <source src="./audio/footsteps.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
@@ -321,7 +321,7 @@
                          transition="p0-door"
                          v-trans="{
                 transition:{transition:'all .9s cubic-bezier(.22,.81,.58,.96) 1.2s',opacity:1,scale:1,y:0},
-                enter:{opacity:0,scale:0,y:-10,'transition-origin':'0 0'},
+                enter:{opacity:0,scale:0.5,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
                     <div class="p0-prompt-box pa"
@@ -407,7 +407,7 @@
                  transition="sofa"
                  v-trans="{
             transition:{transition:'all .9s ease .1s',opacity:1},
-            enter:{opacity:0,x:-50,y:50},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <div class="slogan-box pa"
@@ -444,13 +444,13 @@
                  transition="curtain"
                  v-trans="{
             transition:{transition:'all .9s ease .5s',opacity:1},
-            enter:{opacity:0,x:50,y:50},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <img src="../../img/curtain01.png" alt="" class="curtain01 pa" v-show="currentPage>3 && currentPage<6"
                  transition="curtain01" v-trans="{
             transition:{transition:'all .7s ease 1.1s',opacity:1},
-            enter:{opacity:0,x:50},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <img src="../../img/draw.png" alt="" class="draw pa" v-show="currentPage>3 && currentPage<6"
@@ -459,23 +459,23 @@
                  transition="table"
                  v-trans="{
             transition:{transition:'all .9s ease 1.5s',opacity:1},
-            enter:{opacity:0,x:-20,y:50},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <!--/page4 to 5-->
             <!--page4-->
             <div class="slogan-box pa"
                  v-show="currentPage==4"
-                 v-anim="{animation:'p4-capy1 2.8s ease 2.1s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                 v-anim="{animation:'p4-capy1 3.2s ease 2.1s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/05_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/04_capy02.png" alt="" class="p4-capy2 pa"
                  v-show="currentPage==4"
                  transition="p4-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 4.3s',opacity:1},
-            enter:{opacity:0,y:50},
+            transition:{transition:'all .7s ease 5.1s',opacity:1},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <div class="p4-prompt-box pa"
@@ -483,7 +483,7 @@
                  v-show="currentPage==4"
                  transition="p4-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 5.4s',opacity:1},
+                transition:{transition:'opacity .7s ease 5.5s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -495,7 +495,7 @@
             <!--page5-->
             <img src="../../img/food.png" alt="" class="food pa" v-show="currentPage==5" transition="food" v-trans="{
             transition:{transition:'all .7s ease',opacity:1},
-            enter:{opacity:0,rotate:20,scale:1.3},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <div class="slogan-box pa"
@@ -517,7 +517,7 @@
                  v-show="currentPage==5"
                  transition="p5-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.4s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.6s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -554,7 +554,7 @@
                  v-show="currentPage==6&&!isShowKongtiao"
                  transition="p6-prompt-1"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.1s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.2s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -566,7 +566,7 @@
                  v-show="currentPage==6&&!isShowTV"
                  transition="p6-prompt-2"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 3.1s',opacity:1},
+                transition:{transition:'opacity .7s ease 3.4s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -581,7 +581,7 @@
                  transition="kongtiao"
                  v-trans="{
             transition:{transition:'all .7s ease 0.2s',opacity:1},
-            enter:{opacity:0,x:10,y:10},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <img src="../../img/tv.png" alt="" class="tv pa"
@@ -589,7 +589,7 @@
                  transition="tv"
                  v-trans="{
             transition:{transition:'all .7s ease 0.2s',opacity:1},
-            enter:{opacity:0,y:30},
+            enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
             <div class="slogan-box pa"
@@ -603,7 +603,7 @@
 
             <!--page8-->
             <div id="page8" class="page" v-show="currentPage>=8">
-                <audio v-el:audio2>
+                <audio v-el:audio2 id="audiob" autoplay>
                     <source src="./audio/camera.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
@@ -776,9 +776,35 @@
         },
         ready(){
             this.currentPage = 0;
-            this.$els.audio1.play();
+            this.$emit('page-changed',this.currentPage);
+            this.$on('page-changed',function(msg){
+                alert('msg = ' + msg);
+                document.getElementById('audioa').play();
+            });
+//            this.audioAutoPlay('audioa');
         },
         methods: {
+            audioAutoPlay(id){
+                var audio = document.getElementById(id);
+
+                var play = function () {
+                    document.removeEventListener("WeixinJSBridgeReady", play);
+                    document.removeEventListener("YixinJSBridgeReady", play);
+
+                    audio.play();
+                    audio.pause();
+                    // document.removeEventListener("touchstart", play, false);
+                };
+
+                audio.play();
+                audio.pause();
+
+                //weixin
+                document.addEventListener("WeixinJSBridgeReady", play, false);
+                //yixin
+                document.addEventListener('YixinJSBridgeReady', play, false);
+                // document.addEventListener("touchstart", play, false);
+            },
             //nextPage()唯一改变index的函数
             nextPage(){
                 this.currentPage++;
