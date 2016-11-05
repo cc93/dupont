@@ -1,4 +1,7 @@
 <style>
+
+
+
     .app {
         width: 100%;
         height: 100%;
@@ -278,7 +281,6 @@
     #page8 {
         z-index: 8;
     }
-
     #page9 {
         z-index: 9;
     }
@@ -293,6 +295,7 @@
                     <source src="../../audio/footsteps.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
+                <stars-twinkle :enable="currentPage==0"></stars-twinkle>
                 <img src="../../img/00_bj.jpg" alt="" class="bg"
                      v-show="currentPage==0">
                 <img src="../../img/00_capy1.png" alt="" class="p0-capy1 pa" width="421"
@@ -702,6 +705,7 @@
                         var cssSmartObj = {x: newX, y: newY, scale: newScale, 'transform-origin': '0 0'};
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
+
                     //portrait
                     var portraitResize = function () {
                         var winWidth = window.innerHeight;
@@ -771,7 +775,7 @@
             }
         },
         ready(){
-            this.currentPage = 7;
+            this.currentPage = 0;
             this.$els.audio1.play();
         },
         methods: {
@@ -804,7 +808,7 @@
                 }
             },
             photoJump(x0, y0, x1, y1, scale0, scale1, rotate0, rotate1, duration){
-                duration = Math.ceil(duration / 10);
+                duration = Math.ceil(duration / 20);
                 var t = 0;
                 var iId = setInterval(function () {
                     if (t < duration) {
@@ -819,7 +823,7 @@
                             this.nextPage();
                         }, 1500)
                     }
-                }.bind(this), 10)
+                }.bind(this), 20)
             },
             //Tween
             //t:currenttime, b:begin, c:change, d:duration

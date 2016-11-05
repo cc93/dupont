@@ -7,7 +7,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="format-detection" content="telephone=no,email=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <!--<meta name="viewport" content="width=device-width">-->
     <!--&lt;!&ndash; 屏幕适配的js，方式：设置viewport的initial-scale完成整体缩放 &ndash;&gt;-->
     <!--<script>-->
@@ -15,7 +16,6 @@
         <!--(function (win) {-->
             <!--var doc = win.document;-->
             <!--var docEl = doc.documentElement;-->
-            <!--var scale = 1;-->
             <!--//设计稿的尺寸-->
             <!--var docWidth = 1334;-->
             <!--var docHeight = 750;-->
@@ -24,41 +24,48 @@
 
             <!--//实际的屏幕尺寸-->
             <!--var screenWidth, screenHeight;-->
-
+            <!--var isLandscape = 0;-->
             <!--screenWidth = win.screen.width;-->
             <!--screenHeight = win.screen.height;-->
+
+
             <!--//如果是横屏，屏幕宽高要反过来-->
             <!--if (window.orientation == 90 || window.orientation == -90) {-->
+                <!--isLandscape = 1;-->
                 <!--screenWidth = win.screen.height;-->
                 <!--screenHeight = win.screen.width;-->
             <!--}-->
-            <!--alert('screenWidth = ' + screenWidth + '\n screenHeight' + screenHeight)-->
             <!--//屏幕宽高比-->
             <!--var screenRatio = screenWidth / screenHeight;-->
 
 
-            <!--//宽度较大，则以高度为基准，顶高缩放，宽度溢出-->
-            <!--if (docRatio > screenRatio) {-->
-                <!--scale =  screenHeight / docHeight;-->
-                <!--//高度较大，顶宽缩放，高度溢出-->
-            <!--} else {-->
-                <!--scale =  screenWidth / docWidth;-->
-            <!--}-->
+            <!--//计算缩放比例scale-->
+            <!--//缩放方式两种：顶宽缩放,顶高缩放-->
+            <!--//fill模式缩放，保证占满屏 但可能有部分内容显示不了-->
+            <!--// 宽度较大，则以高度为基准，顶高缩放，宽度溢出,保证满屏-->
+            <!--//高度较大，顶宽缩放，高度溢出-->
+            <!--var fillWidth = !(docRatio > screenRatio);-->
+            <!--var scale = fillWidth? (screenWidth/docWidth):(screenHeight/docHeight);-->
+
             <!--var metaEl = doc.querySelector('meta[name="viewport"]');-->
             <!--metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');-->
-            <!--screenWidth = screenWidth/scale;-->
-            <!--screenHeight = screenHeight/scale;-->
-            <!--alert('after scaling, screenWidth = ' + screenWidth + '\n screenHeight' + screenHeight)-->
-
-            <!--var transX = -(screenWidth - docWidth) / 2 + 'px';-->
-            <!--var transY = (screenHeight - docHeight) / 2 + 'px';-->
-            <!--alert('scale = ' + scale + '\n transX =' + transX + '\n transY = ' + transY)-->
+            <!--screenWidth = screenWidth / scale;-->
+            <!--screenHeight = screenHeight / scale;-->
+            <!--//计算transform 平移、旋转-->
+            <!--var rotate = 90, transX = 0, transY = 0;-->
+            <!--transX =  docHeight;-->
+            <!--transY = 0;-->
+            <!--if(isLandscape){-->
+                <!--rotate = 0;-->
+                <!--transX = ((screenWidth - docWidth) / 2 );-->
+                <!--transY = ((screenHeight - docHeight) / 2 ) ;-->
+            <!--}-->
             <!--var style = doc.createElement('style');-->
             <!--style.rel = 'stylesheet';-->
             <!--style.type = 'text/css';-->
             <!--doc.getElementsByTagName('head')[0].appendChild(style);-->
-            <!--var cssString = 'body {' + ' -webkit-transform: translateX('+ transX +') translateY('+ transY +'); ' +-->
-                    <!--' transform: translateX('+ transX +') translateY('+ transY +'); transform-origin: 0 0;  -webkit-transform-origin: 0 0 ;'+'}';-->
+            <!--var cssString = 'body {width:' + docWidth + 'px !important;height:' + docHeight + 'px !important; -webkit-transform: translate(' + transX + 'px,'+ transY +'px) rotate('+rotate+'deg);'  +-->
+                    <!--' transform: translate(' + transX + 'px,'+ transY + 'px) rotate('+ rotate +'deg);'+ ' transform-origin: 0 0;  -webkit-transform-origin: 0 0 ;' + '}';-->
             <!--if (style.styleSheet) {// IE-->
                 <!--style.styleSheet.cssText = cssString;-->
             <!--} else {// w3c-->
