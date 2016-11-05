@@ -292,7 +292,7 @@
             <div id="page0" class="page"
                  v-show="currentPage==0">
                 <audio v-el:audio1>
-                    <source src="../../audio/footsteps.mp3" type="audio/mpeg">
+                    <source src="./audio/footsteps.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
                 <stars-twinkle :enable="currentPage==0"></stars-twinkle>
@@ -604,7 +604,7 @@
             <!--page8-->
             <div id="page8" class="page" v-show="currentPage>=8">
                 <audio v-el:audio2>
-                    <source src="../../audio/camera.mp3" type="audio/mpeg">
+                    <source src="./audio/camera.mp3" type="audio/mpeg">
                     Your browser does not support HTML5 audio.
                 </audio>
                 <img src="../../img/08_bj.jpg" alt="" class="bg">
