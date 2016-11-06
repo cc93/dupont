@@ -325,7 +325,8 @@
             </div>
             <img src="../../img/00_bj.jpg" alt="" class="bg"
                  v-show="currentPage==-1||currentPage==0">
-            <stars-twinkle :enable="currentPage==-1||currentPage==0" :sum="12"></stars-twinkle>
+            <stars-twinkle :enable="currentPage==-1||currentPage==0" :sum="12"
+                           v-show="currentPage==-1||currentPage==0"></stars-twinkle>
             <!-- /page-1 loading -->
             <!--page0-->
             <div id="page0" class="page" @click="onImg1load"
