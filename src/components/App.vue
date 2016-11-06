@@ -1,6 +1,4 @@
 <style>
-
-
     .app {
         width: 100%;
         height: 100%;
@@ -346,27 +344,26 @@
                 <img src="../../img/00_capy3.png" alt="" class="p0-capy3 pa" width="786"
                      v-show="currentPage==0"
                      v-anim="{animation:'p0-capy3 2.1s ease 2.6s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }"
-                     @animationstart="isP0Capy3AnimStart=true">
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/00_capy4.png" alt="" class="p0-capy4 pa" width="907"
                      v-show="currentPage==0"
                      v-anim="{animation:'p0-capy4 2.1s ease 4.1s normal forwards',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},'%'] }">
                 <div class="p0-door pa">
                     <img src="../../img/00_door.png" alt="" width="231"
-                         v-show="isP0Capy3AnimStart==true"
+                         v-show="currentPage==0"
                          transition="p0-door"
                          v-trans="{
-                transition:{transition:'all 1.5s cubic-bezier(.22,.81,.58,.96) .7s',opacity:1,scale:1,y:0},
+                transition:{transition:'all 1.5s cubic-bezier(.22,.81,.58,.96) 3.3s',opacity:1,scale:1,y:0},
                 enter:{opacity:0,scale:0.5,y:-10,'transition-origin':'0 0'},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
                     <div class="p0-prompt-box pa"
                          @click="nextPage"
-                         v-show="isP0Capy3AnimStart==true"
+                         v-show="currentPage==0"
                          transition="p0-prompt"
                          v-trans="{
-                    transition:{transition:'opacity .7s ease 2.1s',opacity:1},
+                    transition:{transition:'opacity .7s ease 4.7s',opacity:1},
                     enter:{opacity:0},
                     leave:{opacity:0,transition:'all .1s ease'},
                      ext:'%'}">
@@ -638,8 +635,7 @@
             <div class="slogan-box pa"
                  v-show="currentPage==7"
                  v-anim="{animation:'p8-capy1 2.5s ease .6s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }"
-                 @animationend="nextPage">
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/07_capy01.png" alt="" class="slogan pa">
             </div>
             <!--/page7-->
@@ -690,25 +686,7 @@
                     var timeFn = '';
                     var loop = '';
                     var ext = 'px';     //默认单位是px
-                    var frames = {};    //obj, required!
-                    //取得frames对象
-                    if (val.frames instanceof Array) {  // val.frames is [Object Array]
-                        var length = val.frames.length;
-                        var lastArg = val.frames[length - 1];
-                        var key = '';
-                        if (typeof lastArg === 'string') {
-                            ext = lastArg;
-                            val.frames.splice(length - 1, 1);
-                            length -= 1;
-                        }
-                        for (var i = 0; i < length; i++) {
-                            key = (i / (length - 1) * 100).toFixed(1) + '%';
-                            frames[key] = val.frames[i];
-                        }
-                        frames['ext'] = ext;
-                    } else {     // val.frames is [Object Object]
-                        frames = val.frames;
-                    }
+
                     //取得animation的css字符串
                     if (val.animation != undefined) {
                         var str = val.animation;
@@ -720,8 +698,11 @@
                         timeFn = val.timeFn || 'linear';
                         loop = val.loop || 'infinite';
                     }
-                    var anim = Smart.Animations.create(name, frames);
-                    this.el.style.animation = val.animation;
+                    Smart.Animations.createSmartAnimation(name, val.frames);
+                    var animationObj = {'animation':val.animation};
+                    Smart.Css.smartCss(this.el, animationObj);
+//                    this.el.style.webkitAnimation = val.animation;
+//                    this.el.style.animation = val.animation;
                 }
             },
             'auto-scale': {
@@ -809,7 +790,6 @@
             return {
                 isLoadComplete:false,
                 currentPage: -1,
-                isP0Capy3AnimStart: false,
                 isShowKongtiao: false,
                 isShowTV: false,
                 photoX: 66,
@@ -880,6 +860,7 @@
                     window.removeEventListener('click', loadAudio, false);
                 }
             },
+            //只能用 nextPage() 函数来改变页码！！！！！ 因为在此函数中进行页码检测 触发动画
             //nextPage()唯一改变index的函数
             nextPage(){
                 this.currentPage++;
@@ -887,15 +868,19 @@
                 if (this.currentPage > 9) {
                     this.currentPage = 9;
                 }
+                if(this.currentPage == 0){
+                    document.getElementById('audioa').play();
+                }
                 if(this.currentPage == 1){
                     if(!document.getElementById('audioa').paused){
                         document.getElementById('audioa').pause();
                     }
                 }
-                if(this.currentPage == 0){
-                    document.getElementById('audioa').play();
+                if(this.currentPage == 7){
+                    setTimeout(()=>{
+                        this.nextPage();
+                    },4000);
                 }
-                //触发动画
                 if (this.currentPage == 8) {
                     document.getElementById('audiob').play();
                     document.getElementById('audiob').onplaying = this.photoJump(1344 / 2, 750 / 2, 56, 273, 3.05, 1, 4, 0, 700);
