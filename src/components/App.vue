@@ -701,8 +701,6 @@
                     Smart.Animations.createSmartAnimation(name, val.frames);
                     var animationObj = {'animation':val.animation};
                     Smart.Css.smartCss(this.el, animationObj);
-//                    this.el.style.webkitAnimation = val.animation;
-//                    this.el.style.animation = val.animation;
                 }
             },
             'auto-scale': {
@@ -826,6 +824,7 @@
                         if (pp >= 100) {
                             loadedCompelte();
                         } else {
+                            //必须异步线程执行自调用,否则容易函数栈堆积而卡死
                             setTimeout(()=> {
                                 setLoadedPercent(100);
                             });
