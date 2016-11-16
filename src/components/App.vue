@@ -508,7 +508,7 @@
                  v-show="currentPage==4"
                  v-anim="{animation:'p4-capy1 3s ease 2.3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/05_capy01.png" alt="" class="slogan pa">
+                <img src="../../img/04_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/04_capy02.png" alt="" class="p4-capy2 pa"
                  v-show="currentPage==4"
@@ -542,7 +542,7 @@
                  v-show="currentPage==5"
                  v-anim="{animation:'p5-capy1 2.7s ease .3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
-                <img src="../../img/04_capy01.png" alt="" class="slogan pa">
+                <img src="../../img/05_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/05_capy02.png" alt="" class="p4-capy2 pa"
                  v-show="currentPage==5"
