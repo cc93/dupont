@@ -49,7 +49,7 @@
 
     }
 
-    .loading-text{
+    .loading-text {
         left: 50%;
         top: 80%;
         -webkit-transform: translateX(-50%) translateY(-50%);
@@ -699,20 +699,22 @@
                         loop = val.loop || 'infinite';
                     }
                     Smart.Animations.createSmartAnimation(name, val.frames);
-                    var animationObj = {'animation':val.animation};
+                    var animationObj = {'animation': val.animation};
                     Smart.Css.smartCss(this.el, animationObj);
                 }
             },
             'auto-scale': {
                 update: function (val) {
+                    var winWidth = window.innerWidth;
+                    var winHeight = window.innerHeight;
                     var el = this.el;
                     var width = val.width;
                     var height = val.height;
                     var ratio = width / height;
                     var newWidth, newHeight, newX, newY, newScale;
                     var resize = function () {
-                        var winWidth = window.innerWidth;
-                        var winHeight = window.innerHeight;
+                        winWidth = window.innerWidth;
+                        winHeight = window.innerHeight;
                         var winRatio = winWidth / winHeight;
                         if (ratio < winRatio) {
                             newWidth = winWidth;
@@ -730,8 +732,8 @@
 
                     //portrait
                     var portraitResize = function () {
-                        var winWidth = window.innerHeight;
-                        var winHeight = window.innerWidth;
+                        winWidth = window.innerHeight;
+                        winHeight = window.innerWidth;
                         var winRatio = winWidth / winHeight;
                         if (ratio < winRatio) {
                             newWidth = winWidth;
@@ -753,17 +755,11 @@
                         Smart.Css.smartCss(el, cssSmartObj, 'px');
                     };
 
-                    //PC端
-                    if (typeof window.orientation === 'undefined') {
-                        resize();
-                    }
-                    //移动端
                     //竖屏
-                    if (window.orientation == 180 || window.orientation == 0) {
+                    if (winWidth < winHeight) {
                         portraitResize();
-                    }
-                    //横屏
-                    if (window.orientation == 90 || window.orientation == -90) {
+                    } else {
+                        //横屏
                         resize();
                     }
                     window.onresize = function () {
@@ -786,7 +782,7 @@
         },
         data(){
             return {
-                isLoadComplete:false,
+                isLoadComplete: false,
                 currentPage: -1,
                 isShowKongtiao: false,
                 isShowTV: false,
@@ -804,9 +800,9 @@
             loading(){
                 //init radialIndicator
                 var radialObj = radialIndicator('#indicatorContainer', {
-                    radius:50,
+                    radius: 50,
                     barColor: 'rgba(255,255,255,1)',
-                    barBgColor:'rgba(255,255,255,0.7)',
+                    barBgColor: 'rgba(255,255,255,0.7)',
                     barWidth: 10,
                     initValue: 10,
                     roundCorner: true,
@@ -838,24 +834,24 @@
                 };
                 //监听资源加载进度事件
                 loader.addProgressListener(function (p) {
-                    setLoadedPercent(Math.max(10,p.completedCount / p.totalCount * 100));
+                    setLoadedPercent(Math.max(10, p.completedCount / p.totalCount * 100));
                 }.bind(this));
                 loader.start();
             },
             onClickLoadingPage(){
-                if(this.isLoadComplete){
-                    setTimeout(()=>{
+                if (this.isLoadComplete) {
+                    setTimeout(()=> {
                         this.nextPage();
-                    },500);
+                    }, 500);
                 }
             },
             initAudio(){
-                var loadAudio = ()=>{
+                var loadAudio = ()=> {
                     document.getElementById('audioa').load();
                     document.getElementById('audiob').load();
                 };
                 window.addEventListener('click', loadAudio, false);
-                document.getElementById('audioa').oncanplay = ()=>{
+                document.getElementById('audioa').oncanplay = ()=> {
                     window.removeEventListener('click', loadAudio, false);
                 }
             },
@@ -867,18 +863,18 @@
                 if (this.currentPage > 9) {
                     this.currentPage = 9;
                 }
-                if(this.currentPage == 0){
+                if (this.currentPage == 0) {
                     document.getElementById('audioa').play();
                 }
-                if(this.currentPage == 1){
-                    if(!document.getElementById('audioa').paused){
+                if (this.currentPage == 1) {
+                    if (!document.getElementById('audioa').paused) {
                         document.getElementById('audioa').pause();
                     }
                 }
-                if(this.currentPage == 7){
-                    setTimeout(()=>{
+                if (this.currentPage == 7) {
+                    setTimeout(()=> {
                         this.nextPage();
-                    },4000);
+                    }, 4000);
                 }
                 if (this.currentPage == 8) {
                     document.getElementById('audiob').play();
