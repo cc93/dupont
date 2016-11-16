@@ -409,15 +409,15 @@
                 {},{},{opacity:1},{opacity:1,scaleX:1},{opacity:0.7,scaleX:0.95},{opacity:1,scaleX:1},{opacity:1},{},{},'%'] }">
             <div class="slogan-box pa"
                  v-show="currentPage==2"
-                 v-anim="{animation:'p2-capy1 4s ease .2s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                 v-anim="{animation:'p2-capy1 5s ease .2s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/02_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/02_capy03.png" alt="" class="p1-capy1 pa"
                  v-show="currentPage==2"
                  transition="p2-capy3"
                  v-trans="{
-                    transition:{transition:'all .7s ease 3.7s',opacity:1},
+                    transition:{transition:'all .7s ease 4.7s',opacity:1},
                     enter:{opacity:0,y:50},
                     leave:{opacity:0,transition:'all .1s ease'},
                          ext:'%'}">
@@ -426,7 +426,7 @@
                  v-show="currentPage==2"
                  transition="p2-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 4s',opacity:1},
+                transition:{transition:'opacity .7s ease 5s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -446,15 +446,15 @@
                  ext:'%'}">
             <div class="slogan-box pa"
                  v-show="currentPage==3"
-                 v-anim="{animation:'p3-capy1 6s ease .7s',frames:[
-                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
+                 v-anim="{animation:'p3-capy1 10s ease .7s',frames:[
+                {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/03_capy01.png" alt="" class="slogan pa">
             </div>
             <img src="../../img/03_capy02.png" alt="" class="p3-capy2 pa"
                  v-show="currentPage==3"
                  transition="p3-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 6.5s',opacity:1},
+            transition:{transition:'all .7s ease 10.5s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -463,7 +463,7 @@
                  v-show="currentPage==3"
                  transition="p3-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 6.8s',opacity:1},
+                transition:{transition:'opacity .7s ease 10.8s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -506,7 +506,7 @@
             <!--page4-->
             <div class="slogan-box pa"
                  v-show="currentPage==4"
-                 v-anim="{animation:'p4-capy1 6.5s ease 2.3s',frames:[
+                 v-anim="{animation:'p4-capy1 8s ease 2.3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/04_capy01.png" alt="" class="slogan pa">
             </div>
@@ -514,7 +514,7 @@
                  v-show="currentPage==4"
                  transition="p4-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 8.6s',opacity:1},
+            transition:{transition:'all .7s ease 10.1s',opacity:1},
             enter:{opacity:0},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -523,7 +523,7 @@
                  v-show="currentPage==4"
                  transition="p4-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 8.9s',opacity:1},
+                transition:{transition:'opacity .7s ease 10.4s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -540,7 +540,7 @@
                  ext:'%'}">
             <div class="slogan-box pa"
                  v-show="currentPage==5"
-                 v-anim="{animation:'p5-capy1 5.2s ease .3s',frames:[
+                 v-anim="{animation:'p5-capy1 8.2s ease .3s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/05_capy01.png" alt="" class="slogan pa">
             </div>
@@ -548,7 +548,7 @@
                  v-show="currentPage==5"
                  transition="p5-capy2"
                  v-trans="{
-            transition:{transition:'all .7s ease 5.4s',opacity:1},
+            transition:{transition:'all .7s ease 8.4s',opacity:1},
             enter:{opacity:0,y:50},
             leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -557,7 +557,7 @@
                  v-show="currentPage==5"
                  transition="p5-prompt"
                  v-trans="{
-                transition:{transition:'opacity .7s ease 5.7s',opacity:1},
+                transition:{transition:'opacity .7s ease 8.7s',opacity:1},
                 enter:{opacity:0},
                 leave:{opacity:0,transition:'all .1s ease'},
                  ext:'%'}">
@@ -634,7 +634,7 @@
                  ext:'%'}">
             <div class="slogan-box pa"
                  v-show="currentPage==7"
-                 v-anim="{animation:'p8-capy1 4.5s ease .6s',frames:[
+                 v-anim="{animation:'p8-capy1 5.5s ease .6s',frames:[
                 {opacity:0,y:50},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:1,y:0},{opacity:0,y:-50},'%'] }">
                 <img src="../../img/07_capy01.png" alt="" class="slogan pa">
             </div>
@@ -874,7 +874,7 @@
                 if (this.currentPage == 7) {
                     setTimeout(()=> {
                         this.nextPage();
-                    }, 4000);
+                    }, 6000);
                 }
                 if (this.currentPage == 8) {
                     document.getElementById('audiob').play();
