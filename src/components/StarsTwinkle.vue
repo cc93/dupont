@@ -7,14 +7,14 @@
         top: 0
     }
 
-    .cc-star-box {
+    .stars-twinkle-star-box {
         width: 7px;
         height: 7px;
         overflow: hidden;
         position: absolute;
     }
 
-    .cc-star{
+    .stars-twinkle-star{
         width:49px;
         height:7px;
         position: absolute;
@@ -24,10 +24,10 @@
 </style>
 <template>
     <div class="stars-twinkle">
-        <div class="cc-star-box"
+        <div class="stars-twinkle-star-box"
              :style="{transform:'scale('+(1+Math.random())+')',left:Math.random()*100+'%', top:Math.random()*100+'%' }"
              v-for="i in sum">
-            <img src="../../img/stars.png" alt="" class="cc-star" :style="{transform:'translateX('+(-1)*((i+ii)%7*7)+'px)'}">
+            <img src="../../img/stars.png" alt="" class="stars-twinkle-star" :style="{transform:'translateX('+(-1)*((i+ii)%7*7)+'px)'}">
         </div>
     </div>
 </template>
